@@ -304,6 +304,89 @@ section p {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* New Section for Certificates */
+/* You can customize the icon for certificates section here if you like, e.g., color: #e67e22; */
+
+.certificates-wrapper {
+    /* Initially hide content by default */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out; /* Smooth animation for expansion/collapse */
+}
+
+.certificates-wrapper.expanded {
+    max-height: 1000px; /* Max height when expanded (adjust if content is very long) */
+    /* You can use a larger value like 2000px if your certificate content is extensive */
+}
+
+.certificate-entry {
+    background-color: #f7f9fb; /* Slightly different background for individual entries */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-left: 4px solid #3498db; /* Accent line */
+}
+
+.certificate-entry h3 {
+    color: #34495e;
+    margin-top: 0;
+    font-size: 1.6em;
+    margin-bottom: 5px;
+}
+
+.certificate-meta {
+    font-style: italic;
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.btn-certificate {
+    display: inline-block;
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-certificate:hover {
+    background-color: #2980b9;
+}
+
+/* Toggle button styling */
+.toggle-certificates-btn {
+    display: block; /* Make the button a block element */
+    width: fit-content; /* Size button to its content */
+    margin: 20px auto 0; /* Center the button and add top margin */
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.toggle-certificates-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.toggle-certificates-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
 /* Footer Styling */
 footer {
     text-align: center;
@@ -392,5 +475,11 @@ footer {
     .skills-list, .interests-list {
         grid-template-columns: 1fr; /* Stack items on small screens */
         gap: 10px;
+    }
+    /* Certificates Section Mobile */
+    .toggle-certificates-btn {
+        font-size: 1em;
+        padding: 10px 20px;
+        width: 80%; /* Button width on mobile */
     }
 }
