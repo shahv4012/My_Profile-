@@ -190,8 +190,8 @@ section p {
 /* Company Logos Section (New) */
 .company-logos {
     text-align: center; /* Center the logos */
-    margin-top: -15px; /* Pull slightly up to align with H2 */
-    margin-bottom: 40px; /* Space between logos and the first job entry */
+    margin-top: 10px; /* Pull slightly up to align with H2 */
+    margin-bottom: 30px; /* Space between logos and the first job entry */
     display: flex; /* Use flexbox for horizontal layout */
     justify-content: center; /* Center logos within flexbox */
     align-items: center;
