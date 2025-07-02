@@ -1,38 +1,90 @@
+/* Google Fonts - Import them at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
 /* General Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f7f6; /* Light greyish background */
+    background-color: #f0f2f5; /* A softer light grey */
+    scroll-behavior: smooth; /* For smooth scrolling to sections */
+}
+
+/* Base Headings */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50; /* Deep blue-grey */
+    margin-top: 0;
 }
 
 /* Header Styles */
 header {
-    background-color: #2c3e50; /* Dark blue/grey */
+    background-color: #34495e; /* Dark blue/grey */
     color: #ecf0f1; /* Light grey */
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    position: relative; /* For potential background effects */
+    overflow: hidden; /* To contain pseudo-elements */
+}
+
+/* Subtle background pattern/overlay for header */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(52, 73, 94, 0.9) 0%, rgba(44, 62, 80, 0.9) 100%);
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1; /* Ensure content is above the pseudo-element */
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 180px; /* Saiz gambar */
+    height: 180px; /* Saiz gambar */
+    border-radius: 10%; /* Jadikan bulat */
+    object-fit: cover; /* Pastikan gambar memenuhi bulatan tanpa herot */
+    border: 5px solid #3498db; /* Border warna biru */
+    box-shadow: 0 0 0 7px rgba(52, 152, 219, 0.3); /* Cahaya biru di sekeliling border */
+    margin-bottom: 20px; /* Jarak bawah dari nama */
+    display: block; /* Pastikan gambar berada di tengah secara blok */
+    margin-left: auto; /* Pusatkan gambar */
+    margin-right: auto; /* Pusatkan gambar */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.8em;
-    letter-spacing: 1px;
+    font-size: 3.5em;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #f7f9fb; /* Slightly brighter for contrast */
 }
 
 header p {
-    font-size: 1.1em;
-    margin: 5px 0;
+    font-size: 1.2em;
+    margin: 8px 0;
+    font-weight: 300;
+    color: #bdc3c7; /* Softer text color */
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #34495e; /* Slightly lighter dark blue/grey */
-    padding: 10px 0;
+    background-color: #2c3e50; /* Slightly darker than header for depth */
+    padding: 15px 0;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    position: sticky; /* Make navigation stick to top */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top of other content */
 }
 
 nav ul {
@@ -41,131 +93,304 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
     color: #ecf0f1;
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 25px; /* Pill-shaped buttons */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* For transform effect */
 }
 
-nav ul li a:hover {
-    background-color: #4a6784; /* Lighter shade on hover */
+nav ul li a:hover,
+nav ul li a.active { /* Add active class for current section if you use JS */
+    background-color: #3498db; /* Bright blue accent */
     color: #ffffff;
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Content Area */
 main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
+    max-width: 960px; /* Slightly wider for modern feel */
+    margin: 40px auto;
+    padding: 0 25px;
 }
 
 /* Section Styling */
 section {
     background-color: #ffffff;
-    padding: 30px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    margin-bottom: 40px;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+    transition: transform 0.3s ease; /* Subtle hover effect on sections */
 }
 
-section h2 {
-    color: #2c3e50; /* Dark blue/grey for headings */
-    border-bottom: 2px solid #3498db; /* Blue accent */
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 2em;
+section:hover {
+    transform: translateY(-5px);
 }
+
+/* Section Header Content Styling (for icon and subheading above section title) */
+.section-header-content {
+    text-align: center; /* Center the icon, subheading, and h2 */
+    margin-bottom: 30px; /* Space below this content block */
+}
+
+.section-icon {
+    font-size: 3.5em; /* Size of the icon */
+    color: #3498db; /* Accent blue color */
+    margin-bottom: 10px;
+    display: block; /* Ensure icon takes its own line */
+    transition: transform 0.3s ease; /* Icon animation */
+}
+
+.section-icon:hover {
+    transform: scale(1.1); /* Subtle enlarge on hover */
+}
+
+.section-subheading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    color: #7f8c8d; /* Softer text color */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Modify h2 within section to fit new layout */
+section h2 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 12px;
+    margin-top: 15px; /* Space from subheading */
+    margin-bottom: 0; /* Remove original margin-bottom as it's now contained */
+    font-size: 2.5em;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+
+/* Paragraphs within sections */
+section p {
+    font-size: 1.05em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Company Logos Section (New) */
+.company-logos {
+    text-align: center; /* Center the logos */
+    margin-top: -15px; /* Pull slightly up to align with H2 */
+    margin-bottom: 40px; /* Space between logos and the first job entry */
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: center; /* Center logos within flexbox */
+    align-items: center;
+    flex-wrap: wrap; /* Allow logos to wrap if screen is small */
+    gap: 30px; /* Space between each logo */
+}
+
+.company-logo {
+    width: 200px; /* Width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 120px; /* Limit max height if logos are very tall */
+    object-fit: contain; /* Ensure logo fits within dimensions without cropping */
+    filter: grayscale(10%); /* Make logos slightly grayscale */
+    opacity: 0.8;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.company-logo:hover {
+    filter: grayscale(0%); /* Full color on hover */
+    opacity: 1;
+    transform: scale(1.1); /* Slight enlarge on hover */
+}
+
 
 /* Job and Education Entries */
 .job-entry, .edu-entry {
-    margin-bottom: 25px;
-    padding-left: 15px;
-    border-left: 4px solid #3498db;
+    margin-bottom: 35px;
+    padding-left: 20px;
+    border-left: 5px solid #3498db; /* More prominent accent line */
+    position: relative; /* For dot timeline effect */
 }
 
-.job-entry h3, .edu-entry h3 {
+/* Dot timeline effect */
+.job-entry::before, .edu-entry::before {
+    content: '';
+    position: absolute;
+    left: -8px; /* Adjust based on border-left width */
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background-color: #3498db;
+    border-radius: 50%;
+    border: 3px solid #ffffff; /* White border to stand out */
+    box-shadow: 0 0 0 2px #3498db;
+}
+
+/* Adjust heading within job-entry (reverted from previous icon setup) */
+.job-entry h3 {
     color: #34495e;
     margin-top: 0;
-    margin-bottom: 5px;
-    font-size: 1.5em;
+    margin-bottom: 8px; /* Standard margin below title */
+    font-size: 1.8em;
+    font-weight: 600;
 }
 
 .job-meta, .edu-meta {
     font-style: italic;
     color: #7f8c8d;
-    margin-bottom: 10px;
-    display: block; /* Ensure it takes its own line */
+    margin-bottom: 15px;
+    display: block;
+    font-size: 0.95em;
+    /* No specific margin-left needed here anymore for aligning with icons */
 }
 
 .job-entry ul {
-    list-style: disc;
-    margin-left: 20px;
+    list-style: none; /* Remove default bullet */
     padding: 0;
+    margin-left: 0; /* Ensure no default margin */
 }
 
 .job-entry ul li {
-    margin-bottom: 8px;
+    position: relative;
+    padding-left: 25px; /* Space for custom bullet */
+    margin-bottom: 10px;
 }
 
-/* Skills and Interests Lists */
+.job-entry ul li::before {
+    content: '•'; /* Custom bullet point */
+    color: #3498db; /* Blue bullet */
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Skills and Interests Lists - Modern Grid Layout */
 .skills-list, .interests-list {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* More compact responsive grid */
+    gap: 15px; /* Increased gap */
 }
 
 .skills-list li, .interests-list li {
-    background-color: #ecf0f1;
-    padding: 12px 15px;
-    border-radius: 5px;
+    background-color: #ecf0f1; /* Light grey background */
+    padding: 15px 20px;
+    border-radius: 8px; /* More rounded */
     text-align: center;
-    font-weight: bold;
+    font-weight: 600; /* Bolder text */
     color: #34495e;
-    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .skills-list li:hover, .interests-list li:hover {
-    background-color: #dfe6e9;
+    background-color: #3498db; /* Bright blue on hover */
+    color: #ffffff;
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 25px 20px;
+    padding: 30px 20px;
     background-color: #2c3e50;
     color: #ecf0f1;
-    font-size: 0.9em;
-    margin-top: 40px;
+    font-size: 0.95em;
+    margin-top: 50px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+        box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2);
+    }
+    header {
+        padding: 40px 15px;
+    }
     header h1 {
-        font-size: 2em;
+        font-size: 2.8em;
+    }
+    header p {
+        font-size: 1em;
     }
     nav ul {
         flex-direction: column;
         align-items: center;
     }
     nav ul li {
-        margin: 5px 0;
+        margin: 8px 0;
+    }
+    nav ul li a {
+        padding: 8px 15px;
+    }
+    main {
+        margin: 20px auto;
+        padding: 0 15px;
     }
     section {
-        padding: 20px;
+        padding: 25px;
+        margin-bottom: 25px;
+    }
+    .section-header-content {
+        margin-bottom: 20px;
+    }
+    .section-icon {
+        font-size: 2.5em;
+    }
+    .section-subheading {
+        font-size: 0.9em;
+    }
+    section h2 {
+        font-size: 2em;
+        margin-top: 10px;
+    }
+    /* Company Logos */
+    .company-logos {
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    .company-logo {
+        width: 80px; /* Smaller for mobile */
+        max-height: 40px;
+    }
+
+    .job-entry, .edu-entry {
+        padding-left: 15px;
+        margin-bottom: 25px;
+    }
+    .job-entry::before, .edu-entry::before {
+        left: -6px;
+        width: 12px;
+        height: 12px;
+    }
+    .job-entry h3 {
+        font-size: 1.4em;
+        text-align: left; /* Ensure title is left-aligned */
+    }
+    .job-meta {
+        margin-left: 0; /* Remove any left margin from previous icon setup */
     }
     .skills-list, .interests-list {
         grid-template-columns: 1fr; /* Stack items on small screens */
+        gap: 10px;
     }
 }
