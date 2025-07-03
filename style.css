@@ -82,7 +82,8 @@ nav {
     padding: 15px 0;
     text-align: center;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-    z-index: 1000; /* Ensure it stays on top of other content */
+    /* Removed sticky position for non-fixed navigation on scroll */
+    z-index: 1000; /* Ensure it stays on top of other content if it overlaps */
 }
 
 nav ul {
@@ -185,11 +186,11 @@ section p {
     margin-bottom: 15px;
 }
 
-/* Company Logos Section (New) */
+/* Company Logos Section (for Professional Experience section) */
 .company-logos {
     text-align: center; /* Center the logos */
     margin-top: 10px; /* Pull slightly up to align with H2 */
-    margin-bottom: 30px; /* Space between logos and the first job entry */
+    margin-bottom: 40px; /* Space between logos and the first job entry */
     display: flex; /* Use flexbox for horizontal layout */
     justify-content: center; /* Center logos within flexbox */
     align-items: center;
@@ -284,26 +285,153 @@ section p {
     gap: 15px; /* Increased gap */
 }
 
-.skills-list li, .interests-list li {
-    background-color: #ecf0f1; /* Light grey background */
-    padding: 15px 20px;
-    border-radius: 8px; /* More rounded */
-    text-align: center;
-    font-weight: 600; /* Bolder text */
-    color: #34495e;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+.skills-list li {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center; /* Still center align content */
+    position: relative; /* For tooltip positioning */
+    overflow: visible; /* Ensure tooltip is not clipped */
 }
 
-.skills-list li:hover, .interests-list li:hover {
-    background-color: #3498db; /* Bright blue on hover */
-    color: #ffffff;
-    transform: translateY(-3px); /* Lift effect */
+.skills-list li .skill-item { /* The anchor tag inside the list item */
+    display: flex; /* Use flexbox to center text vertically/horizontally */
+    flex-direction: column; /* Stack text and tooltip if needed, or just for centering */
+    justify-content: center; /* Center text vertically */
+    align-items: center; /* Center text horizontally */
+    padding: 15px 20px; /* Apply padding to the link itself */
+    text-decoration: none; /* Remove underline */
+    color: #34495e; /* Text color */
+    font-weight: 600;
+    width: 100%; /* Ensure it fills the li */
+    height: 100%; /* Ensure it fills the li */
+    box-sizing: border-box; /* Include padding in width/height calculation */
+    border-radius: 8px; /* Apply border-radius to the link as well */
+    position: relative; /* For tooltip positioning */
+    z-index: 1; /* Ensure link content is above tooltip backdrop if any */
+}
+
+/* Tooltip styling for skills */
+.skill-level-tooltip {
+    visibility: hidden; /* Hide by default */
+    opacity: 0; /* Start with opacity 0 */
+    background-color: #34495e; /* Tooltip background */
+    color: #fff; /* Tooltip text color */
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 10; /* Ensure it's on top of other elements */
+    bottom: 110%; /* Position above the skill button */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    white-space: nowrap; /* Prevent text from breaking lines */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Animation */
+    font-size: 0.85em; /* Tooltip font size */
+    font-weight: normal; /* Normal font weight for tooltip text */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Tooltip shadow */
+}
+
+/* Arrow for the tooltip (optional) */
+.skill-level-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px; /* Center the arrow */
+    border-width: 5px;
+    border-style: solid;
+    border-color: #34495e transparent transparent transparent; /* Arrow color */
+}
+
+/* Show the tooltip when hovering over the skill item */
+.skills-list li:hover .skill-level-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Slightly move up when appearing */
+}
+
+/* Hover effects for the skill item itself */
+.skills-list li:hover {
+    background-color: #3498db; /* Bright blue on hover for the li */
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.skills-list li .skill-item:hover { /* This applies to the text and container when hovered */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Interests list styling (making them appear like buttons) */
+.interests-list li {
+    background-color: #ecf0f1; /* Light grey background for the button */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    position: relative; /* Needed if you want tooltips here in the future */
+    overflow: visible; /* Needed if you want tooltips here in the future */
+}
+
+.interests-list li .interest-item { /* The anchor tag inside the list item */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px; /* Apply padding here to make it feel like a button */
+    text-decoration: none; /* Remove underline for the link */
+    color: #34495e; /* Text color, matching the skill buttons */
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 8px; /* Apply border-radius to the link as well */
+    transition: color 0.2s ease; /* Transition for text color on hover */
+}
+
+/* Hover effects for the interests list item (li) */
+.interests-list li:hover {
+    background-color: #3498db; /* Bright blue on hover for the li */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Change text color on hover for the anchor tag within interests */
+.interests-list li .interest-item:hover {
+    color: #ffffff; /* White text on hover */
+}
+
+
 /* New Section for Certificates */
-/* You can customize the icon for certificates section here if you like, e.g., color: #e67e22; */
+/* Styling for Certificate Logos */
+.certificate-logos {
+    text-align: center; /* Centers the flex container itself if needed */
+    margin-top: -15px; /* Adjust spacing from the H2 above */
+    margin-bottom: 30px; /* Space between logos and the certificate entries */
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: center; /* Center items horizontally within flexbox */
+    align-items: center; /* Center items vertically */
+    flex-wrap: wrap; /* Allow logos to wrap to next line on small screens */
+    gap: 30px; /* Space between the logos */
+}
+
+.cert-logo {
+    width: 80px; /* Smaller width for certificate logos */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 40px; /* Limit max height */
+    object-fit: contain; /* Ensure logo fits without cropping */
+    filter: grayscale(10%); /* Subtle grayscale */
+    opacity: 0.8;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cert-logo:hover {
+    filter: grayscale(0%); /* Full color on hover */
+    opacity: 1;
+    transform: scale(1.05); /* Slight enlarge on hover */
+}
+
 
 .certificates-wrapper {
     /* Initially hide content by default */
@@ -388,7 +516,7 @@ section p {
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 30px 20px;
+    padding: 20px 20px;
     background-color: #2c3e50;
     color: #ecf0f1;
     font-size: 0.95em;
@@ -444,7 +572,7 @@ footer {
         font-size: 2em;
         margin-top: 10px;
     }
-    /* Company Logos */
+    /* Company Logos (for Experience Section) */
     .company-logos {
         gap: 20px;
         margin-bottom: 30px;
@@ -479,5 +607,15 @@ footer {
         font-size: 1em;
         padding: 10px 20px;
         width: 80%; /* Button width on mobile */
+    }
+    /* Skill tooltip on mobile - adjust as needed, might want to disable or change behavior */
+    .skill-level-tooltip {
+        font-size: 0.75em; /* Smaller font on mobile */
+        padding: 6px 10px;
+        bottom: 105%; /* Adjust position slightly */
+    }
+    .skill-level-tooltip::after {
+        border-width: 4px;
+        margin-left: -4px;
     }
 }
