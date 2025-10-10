@@ -12,25 +12,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="main-header">
         <div class="header-content">
             <img src="amirul.jpg" alt="Amirul Shah Profile Picture" class="profile-pic">
-            <h1>AMIRUL SHAH BIN MD ROSLI</h1>
-            <p>Email: amirulshah4012@gmail.com | Phone: 01158042310</p>
-            <p>Lot 1928, Batu 9, Jalan Tanjung, Sijangkang, Telok Panglima Garang, Selangor</p>
-            <p>Single | Born: June 8, 2003</p>
+            <div class="header-text">
+                <h1 class="name-title">AMIRUL SHAH BIN MD ROSLI</h1>
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> <a href="mailto:amirulshah4012@gmail.com">amirulshah4012@gmail.com</a></span>
+                    <span><i class="fas fa-phone"></i> <a href="tel:01158042310">011-5804 2310</a></span>
+                </div>
+                <div class="address-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Lot 1928, Batu 9, Jalan Tanjung, Sijangkang, Telok Panglima Garang, Selangor</span>
+                </div>
+                <div class="personal-info">
+                    <span><i class="fas fa-user"></i> Single</span>
+                    <span><i class="fas fa-birthday-cake"></i> Born: June 8, 2003</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <nav>
+    <nav class="main-nav">
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#interests">Interests</a></li>
-            <li><a href="portfolio.html" class="portfolio-nav-link">Portfolio</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#skills"><i class="fas fa-lightbulb"></i> Skills</a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
+            <li><a href="#interests"><i class="fas fa-heart"></i> Interests</a></li>
+            <li><a href="portfolio.html" class="portfolio-nav-link"><i class="fas fa-folder-open"></i> Portfolio</a></li>
         </ul>
     </nav>
 
@@ -150,38 +160,52 @@
             </ul>
         </section>
 
-        <section id="certificates">
-            <div class="section-header-content">
-                <i class="fas fa-certificate section-icon"></i>
-                <p class="section-subheading">My Achievements</p>
-                <h2>Certificates</h2>
+    <section id="certificates" class="certificates-section-container">
+        <div class="section-header">
+            <div style="text-align: center; margin-bottom: 10px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ff575a" style="vertical-align: middle;">
+                <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+            </svg>
             </div>
+            <h2>MY ACHIEVEMENTS</h2>
+            <h1 style="font-size: 2.5em; text-align: center; margin-top: 0;">Certificates</h1>
+        </div>
 
-            <div class="certificates-wrapper">
-                <div class="certificate-logos">
-                <img src="logowazza.png" alt="WazzaRed Logo" class="cert-logo">
-            </div>
-                <article class="certificate-entry">
-                    <h3>KURSUS PENGUASAAN E-DATA & PENGURUSAN DASHBOARD DENGAN GOOGLE SHEETS</h3>
-                    <p class="certificate-meta">Issued by WazzaRed (Wazza Digital Sdn Bhd) | May 27-29, 2025</p>
-                    <p>Description: Successfully completed a comprehensive course on E-Data Mastery & Dashboard Management with Google Sheets.</p>
-                    <a href="WazzaCertificate.jpeg" target="_blank" class="btn-certificate">View Credential</a>
-                </article>
+        <div class="certificate-logos">
+        <img src="path/to/wazzared-logo.png" alt="WazzaRed Logo" class="cert-logo">
+        <img src="path/to/aws-logo.png" alt="AWS Logo" class="cert-logo">
+        </div>
 
-            <div class="certificate-logos">
-                <img src="logoaws.png" alt="AWS Logo" class="cert-logo">
-            </div>
+        <div id="certificates-list" class="certificates-wrapper expanded">
+        
+        <div class="certificate-entry">
+            <h3>KURSUS PENGUASAAN E-DATA & PENGURUSAN DASHBOARD DENGAN GOOGLE SHEETS</h3>
+            <p class="certificate-meta">Issued by WazzaRed (Wazza Digital Sdn Bhd) | May 27-29, 2025</p>
+            <p class="certificate-description">Successfully completed a comprehensive course on E-Data Mastery & Dashboard Management with Google Sheets, focusing on advanced data manipulation and visualization techniques.</p>
+            <a href="URL_SIJIL_WAZZARED" target="_blank" class="btn-certificate">View Credential</a>
+        </div>
 
-                <article class="certificate-entry">
-                    <h3>Data Analytics Fundamentals</h3>
-                    <p class="certificate-meta">Issued by [Nama Institusi/Platform] | [Tarikh Sijil]</p>
-                    <p>Description: Gained foundational knowledge in data analysis, including data collection, cleaning, visualization, and basic statistical methods.</p>
-                    <a href="link-to-certificate-verification-or-image" target="_blank" class="btn-certificate">View Credential</a>
-                </article>
+        <div class="certificate-entry">
+            <h3>Data Analytics Fundamentals</h3>
+            <p class="certificate-meta">Issued by [Nama Institusi/Platform] | [Tarikh Sijil]</p>
+            <p class="certificate-description">Gained foundational knowledge in data analysis, including data collection, cleaning, visualization, and basic statistical methods, essential for entry-level data roles.</p>
+            <a href="URL_SIJIL_AWS" target="_blank" class="btn-certificate">View Credential</a>
+        </div>
 
-                </div>
-            <button class="toggle-certificates-btn">Show More Certificates</button>
-        </section>
+        <div class="certificate-entry">
+            <h3>Web Development Bootcamp</h3>
+            <p class="certificate-meta">Issued by [Nama Platform] | Oct 2024</p>
+            <p class="certificate-description">Completed a 400-hour intensive bootcamp covering HTML5, CSS3, JavaScript (ES6+), React, and Node.js for full-stack development.</p>
+            <a href="URL_SIJIL_BOOTCAMP" target="_blank" class="btn-certificate">View Credential</a>
+        </div>
+
+        </div>
+
+        <button id="toggle-certificates" class="toggle-certificates-btn" aria-expanded="true" aria-controls="certificates-list">
+        Show Less Certificates
+        </button>
+
+    </section>
 
         <section id="interests">
             <div class="section-header-content">
@@ -201,11 +225,14 @@
 
     <section class="call-to-action-portfolio">
         <div class="section-header-content">
-            <i class="fas fa-rocket section-icon"></i> <p class="section-subheading">See My Work In Action</p>
+            <i class="fas fa-rocket section-icon"></i>
+            <p class="section-subheading">See My Work In Action</p>
             <h2>Explore My Portfolio</h2>
         </div>
-        <div style="text-align: center;">
-            <a href="portfolio.html" class="btn-primary">View Full Portfolio</a>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="portfolio.html" class="btn-primary" style="padding: 12px 32px; font-size: 1.1em; border-radius: 6px; background: #ff575a; color: #fff; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: background 0.2s;">
+                View Full Portfolio
+            </a>
         </div>
     </section>
 
