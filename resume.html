@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Amirul Shah Bin Md Rosli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        /* ===== PAGE SETUP ===== */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ===== PRINT BUTTON (screen only) ===== */
+        .print-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: #0d1117;
+            color: #fff;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            font-size: 0.88em;
+            gap: 12px;
+        }
+        .print-bar span { color: #8899aa; }
+        .print-bar .hint { font-family: 'JetBrains Mono', monospace; font-size: 0.85em; color: #556677; }
+        .btn-print {
+            background: #FF5A5F;
+            color: #fff;
+            border: none;
+            padding: 9px 22px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .btn-print:hover { background: #e04b50; }
+
+        /* ===== PAGE WRAPPER ===== */
+        .page-wrapper {
+            margin: 56px auto 40px;
+            max-width: 794px; /* A4 width at 96dpi */
+        }
+
+        /* ===== RESUME SHEET ===== */
+        .resume {
+            background: #fff;
+            box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 1123px; /* A4 height */
+        }
+
+        /* ===== LEFT SIDEBAR ===== */
+        .sidebar {
+            background: #0d1117;
+            color: #fff;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-top {
+            background: linear-gradient(160deg, #1a0608 0%, #0d1117 100%);
+            padding: 32px 24px 28px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .sidebar-photo {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FF5A5F;
+            box-shadow: 0 0 0 5px rgba(255,90,95,0.15);
+            margin: 0 auto 16px;
+            display: block;
+        }
+
+        .sidebar-name {
+            font-size: 1.05em;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-title {
+            font-size: 0.72em;
+            color: #FF5A5F;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+        }
+
+        .sidebar-section {
+            padding: 20px 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .sidebar-section:last-child { border-bottom: none; flex: 1; }
+
+        .sidebar-heading {
+            font-size: 0.62em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FF5A5F;
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Contact */
+        .contact-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            font-size: 0.75em;
+            color: #99aabb;
+            line-height: 1.4;
+        }
+        .contact-list li i {
+            color: #FF5A5F;
+            width: 13px;
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .contact-list li a { color: #99aabb; text-decoration: none; }
+
+        /* Skills */
+        .skill-group { margin-bottom: 14px; }
+        .skill-group:last-child { margin-bottom: 0; }
+        .skill-group-title {
+            font-size: 0.65em;
+            font-weight: 700;
+            color: #556677;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+        .skill-bar-item { margin-bottom: 7px; }
+        .skill-bar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+        .skill-bar-header span:first-child {
+            font-size: 0.72em;
+            color: #aabbcc;
+        }
+        .skill-pct {
+            font-size: 0.68em;
+            color: #FF5A5F;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .bar-track {
+            height: 4px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5A5F, #ff8a8d);
+            border-radius: 2px;
+        }
+
+        .tools-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tools-tags span {
+            font-size: 0.66em;
+            color: #8899aa;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* Education sidebar */
+        .edu-item { margin-bottom: 14px; }
+        .edu-item:last-child { margin-bottom: 0; }
+        .edu-item h4 {
+            font-size: 0.74em;
+            font-weight: 700;
+            color: #ccd6e0;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+        .edu-item p {
+            font-size: 0.68em;
+            color: #FF5A5F;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .edu-item span {
+            font-size: 0.65em;
+            color: #556677;
+        }
+
+        /* Interests */
+        .interests-list { display: flex; flex-wrap: wrap; gap: 5px; }
+        .interests-list span {
+            font-size: 0.68em;
+            color: #8899aa;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 4px 9px;
+            border-radius: 4px;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            padding: 32px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* Main heading */
+        .main-header-block {
+            margin-bottom: 22px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f0f2f5;
+            position: relative;
+        }
+        .main-header-block::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 40px; height: 2px;
+            background: #FF5A5F;
+        }
+        .main-header-block h1 {
+            font-size: 1.6em;
+            font-weight: 800;
+            color: #0d1117;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+        .main-header-block h1 span {
+            font-weight: 300;
+            font-size: 0.55em;
+            letter-spacing: 3px;
+            color: #8899aa;
+            display: block;
+            margin-top: 2px;
+        }
+        .main-role {
+            font-size: 0.8em;
+            color: #FF5A5F;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+        }
+
+        /* Section blocks */
+        .content-section { margin-bottom: 20px; }
+        .content-section:last-child { margin-bottom: 0; }
+
+        .content-heading {
+            font-size: 0.65em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FF5A5F;
+            margin-bottom: 10px;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .content-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #f0f2f5;
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 0.8em;
+            line-height: 1.75;
+            color: #5a6475;
+            background: #f7f8fa;
+            border-left: 3px solid #FF5A5F;
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Experience entries */
+        .exp-entry { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #f0f2f5; }
+        .exp-entry:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 2px;
+        }
+        .exp-header h3 {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #0d1117;
+            line-height: 1.2;
+        }
+        .exp-badge {
+            font-size: 0.62em;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .exp-badge.current {
+            background: rgba(255,90,95,0.1);
+            color: #FF5A5F;
+            border: 1px solid rgba(255,90,95,0.2);
+        }
+        .exp-badge.freelance {
+            background: rgba(99,102,241,0.1);
+            color: #818cf8;
+            border: 1px solid rgba(99,102,241,0.2);
+        }
+
+        .exp-company {
+            font-size: 0.76em;
+            color: #FF5A5F;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .exp-meta {
+            font-size: 0.7em;
+            color: #99aabb;
+            margin-bottom: 8px;
+        }
+
+        .exp-list { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+        .exp-list li {
+            font-size: 0.76em;
+            color: #5a6475;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.55;
+        }
+        .exp-list li::before {
+            content: '▸';
+            color: #FF5A5F;
+            position: absolute;
+            left: 0;
+            font-size: 0.75em;
+            top: 2px;
+        }
+
+        .exp-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+        .exp-tags span {
+            font-size: 0.63em;
+            padding: 2px 7px;
+            border-radius: 3px;
+            background: #f0f2f5;
+            color: #5a6475;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Certificates */
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        .cert-item {
+            background: #f7f8fa;
+            border: 1px solid #e8eaed;
+            border-left: 3px solid #FF5A5F;
+            border-radius: 0 5px 5px 0;
+            padding: 7px 10px;
+        }
+        .cert-item h4 { font-size: 0.72em; font-weight: 600; color: #0d1117; line-height: 1.3; margin-bottom: 2px; }
+        .cert-item p { font-size: 0.65em; color: #99aabb; }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body { background: #fff; }
+            .print-bar { display: none; }
+            .page-wrapper { margin: 0; max-width: 100%; }
+            .resume {
+                box-shadow: none;
+                min-height: 100vh;
+                page-break-inside: avoid;
+            }
+            .exp-entry { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-bar">
+        <div>
+            <span>Resume PDF — Amirul Shah Bin Md Rosli</span>
+            <span class="hint">&nbsp;·&nbsp; Ctrl + P → Save as PDF → A4 size, no margins</span>
+        </div>
+        <button class="btn-print" onclick="window.print()">
+            <i class="fas fa-download"></i> Save as PDF
+        </button>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="resume">
+
+            <!-- ===== SIDEBAR ===== -->
+            <aside class="sidebar">
+
+                <div class="sidebar-top">
+                    <img src="amirul.jpg" alt="Amirul Shah" class="sidebar-photo">
+                    <div class="sidebar-name">Amirul Shah<br>Bin Md Rosli</div>
+                    <div class="sidebar-title">Senior Web Developer<br>Data Analytics Specialist</div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-heading">Contact</div>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i><a href="mailto:amirulshah4012@gmail.com">amirulshah4012@gmail.com</a></li>
+                        <li><i class="fas fa-phone"></i>011-5804 2310</li>
+                        <li><i class="fas fa-map-marker-alt"></i>Selangor, Malaysia</li>
+                        <li><i class="fas fa-birthday-cake"></i>June 8, 2003</li>
+                        <li><i class="fas fa-globe"></i>seamountain.co</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-heading">Web Development</div>
+                    <div class="skill-group">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>HTML5 &amp; CSS3</span><span class="skill-pct">92%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>JavaScript (ES6+)</span><span class="skill-pct">78%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Responsive Design</span><span class="skill-pct">90%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>MySQL / Database</span><span class="skill-pct">75%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Git &amp; Version Control</span><span class="skill-pct">68%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:68%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-heading">Data &amp; Analytics</div>
+                    <div class="skill-group">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Google Sheets</span><span class="skill-pct">95%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Microsoft Excel</span><span class="skill-pct">95%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Looker Studio</span><span class="skill-pct">88%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Data Visualization</span><span class="skill-pct">90%</span></div>
+                            <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-heading">Tools</div>
+                    <div class="tools-tags">
+                        <span>Photoshop</span>
+                        <span>Lightroom</span>
+                        <span>AutoCAD</span>
+                        <span>Inventor</span>
+                        <span>Firebase</span>
+                        <span>MS Office</span>
+                        <span>PowerPoint</span>
+                        <span>RFID Systems</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-heading">Education</div>
+                    <div class="edu-item">
+                        <h4>Politeknik Sultan Mizan Zainal Abidin</h4>
+                        <p>Diploma in Mechanical Engineering</p>
+                        <span>2021 – 2024 · Dungun, Terengganu</span>
+                    </div>
+                    <div class="edu-item">
+                        <h4>SMK Sijangkang Jaya</h4>
+                        <p>Sijil Pelajaran Malaysia (SPM)</p>
+                        <span>2016 – 2021 · Selangor</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-heading">Interests</div>
+                    <div class="interests-list">
+                        <span><i class="fas fa-code"></i> Coding</span>
+                        <span><i class="fas fa-camera"></i> Photography</span>
+                        <span><i class="fas fa-plane"></i> Travel</span>
+                        <span><i class="fas fa-gamepad"></i> Gaming</span>
+                        <span><i class="fas fa-leaf"></i> Nature</span>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <main class="main-content">
+
+                <div class="main-header-block">
+                    <h1>AMIRUL SHAH<span>BIN MD ROSLI</span></h1>
+                    <div class="main-role">Senior Web Developer &nbsp;·&nbsp; Data Analytics Specialist &nbsp;·&nbsp; Freelance Developer</div>
+                </div>
+
+                <!-- Summary -->
+                <div class="content-section">
+                    <div class="content-heading">Professional Summary</div>
+                    <p class="summary-text">
+                        A Senior Web Developer and Data Analytics Specialist with hands-on experience building full-stack web applications, live data dashboards, admin systems, and event management platforms. Proven track record delivering end-to-end digital solutions — from design to deployment — with strong attention to detail shaped by a background in Quality Assurance engineering.
+                    </p>
+                </div>
+
+                <!-- Experience -->
+                <div class="content-section">
+                    <div class="content-heading">Professional Experience</div>
+
+                    <div class="exp-entry">
+                        <div class="exp-header">
+                            <h3>Web Developer &amp; Data Management Specialist</h3>
+                            <span class="exp-badge current">● Current</span>
+                        </div>
+                        <div class="exp-company">AR Edutech (M) Sdn Bhd</div>
+                        <div class="exp-meta"><i class="fas fa-map-marker-alt"></i> Klang, Malaysia &nbsp;·&nbsp; 2026 – Present</div>
+                        <ul class="exp-list">
+                            <li>Designed &amp; developed promotional website using HTML, CSS, and JavaScript to enhance brand visibility.</li>
+                            <li>Built a secure admin management system for campaigns, products, and website content management.</li>
+                            <li>Integrated CRM and OnPay platforms for accurate customer data and efficient business operations.</li>
+                            <li>Optimized website performance and responsiveness across desktop and mobile devices.</li>
+                        </ul>
+                        <div class="exp-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>CRM</span><span>Admin Dashboard</span></div>
+                    </div>
+
+                    <div class="exp-entry">
+                        <div class="exp-header">
+                            <h3>Full-Stack Web Developer — Sea Mountain Adventure Race</h3>
+                            <span class="exp-badge freelance">Freelance</span>
+                        </div>
+                        <div class="exp-company">seamountain.co &nbsp;·&nbsp; Solo Developer</div>
+                        <div class="exp-meta"><i class="fas fa-map-marker-alt"></i> Malaysia &nbsp;·&nbsp; 2025 – 2026</div>
+                        <ul class="exp-list">
+                            <li>Built a complete event management platform (35+ pages) — registration, payment, admin, client portal, live race timing.</li>
+                            <li>Multi-step registration with dynamic forms, early bird pricing, QR ticketing, and RFID race timing system.</li>
+                            <li>Payment receipt verification workflow, category-aware voucher engine, and real-time leaderboard.</li>
+                            <li>Firebase backend (Realtime DB, Auth, REST API), Google OAuth, glassmorphism UI, maintenance mode.</li>
+                        </ul>
+                        <div class="exp-tags"><span>HTML/CSS/JS</span><span>Firebase</span><span>RFID</span><span>QR System</span><span>Client Portal</span></div>
+                    </div>
+
+                    <div class="exp-entry">
+                        <div class="exp-header">
+                            <h3>Data Analytics &amp; Web Developer</h3>
+                        </div>
+                        <div class="exp-company">AirAsia@Ground Team Red SDN BHD</div>
+                        <div class="exp-meta"><i class="fas fa-map-marker-alt"></i> Sepang, Malaysia &nbsp;·&nbsp; 2024 – 2025</div>
+                        <ul class="exp-list">
+                            <li>Developed live dashboards using Google Sheets &amp; MySQL for real-time staff performance monitoring.</li>
+                            <li>Built internal web tools and reporting interfaces for operational decision-making.</li>
+                            <li>Monitored system and network performance across a high-tempo aviation environment.</li>
+                        </ul>
+                        <div class="exp-tags"><span>MySQL</span><span>Google Sheets</span><span>Looker Studio</span><span>Data Visualization</span></div>
+                    </div>
+
+                    <div class="exp-entry">
+                        <div class="exp-header">
+                            <h3>Quality Assurance Engineer</h3>
+                        </div>
+                        <div class="exp-company">KYB-UMW SDN BHD</div>
+                        <div class="exp-meta"><i class="fas fa-map-marker-alt"></i> Telok Panglima Garang, Malaysia &nbsp;·&nbsp; 2021 – 2024</div>
+                        <ul class="exp-list">
+                            <li>Inspected mechanical components for compliance with quality standards in high-volume manufacturing.</li>
+                            <li>Calibrated precision instruments and collaborated on corrective/preventive action implementation.</li>
+                        </ul>
+                        <div class="exp-tags"><span>Quality Control</span><span>Engineering Drawing</span><span>Data Reporting</span></div>
+                    </div>
+                </div>
+
+                <!-- Certificates -->
+                <div class="content-section">
+                    <div class="content-heading">Key Certificates</div>
+                    <div class="cert-grid">
+                        <div class="cert-item">
+                            <h4>Google Certified Educator</h4>
+                            <p>Google</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>E-Data &amp; Dashboard Management (Google Sheets)</h4>
+                            <p>WazzaRed · May 2025</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Explore AI Basics &amp; Generative AI</h4>
+                            <p>Microsoft · Sep 2025</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Microsoft Copilot &amp; Responsible AI</h4>
+                            <p>Microsoft · Sep 2025</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>PowerPoint Expert</h4>
+                            <p>HRDC · Oct 2025</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Powerful Data Analysis &amp; Modeling in Excel</h4>
+                            <p>HRDC · Oct 2025</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Advanced Excel &amp; Google Sheets (5 Courses)</h4>
+                            <p>HRDC · Oct 2025</p>
+                        </div>
+                        <div class="cert-item">
+                            <h4>Collaborating Effectively with Google Sheets</h4>
+                            <p>HRDC · Oct 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
