@@ -3,340 +3,625 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Amirul Shah Bin Md Rosli</title>
+    <title>Amirul Shah — Senior Web Developer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="logoa1.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="index-page">
+
     <header class="main-header">
+        <div class="header-bg-grid"></div>
         <div class="header-content">
-            <img src="amirul.jpg" alt="Amirul Shah Profile Picture" class="profile-pic">
+            <img src="amirul.jpg" alt="Amirul Shah" class="profile-pic">
             <div class="header-text">
-                <h1 class="name-title">AMIRUL SHAH BIN MD ROSLI</h1>
-                <div class="contact-info">
-                    <span><i class="fas fa-envelope"></i> <a href="mailto:amirulshah4012@gmail.com">amirulshah4012@gmail.com</a></span>
-                    <span><i class="fas fa-phone"></i> <a href="tel:01158042310">011-5804 2310</a></span>
+                <span class="header-badge"><i class="fas fa-circle"></i> Open to Opportunities</span>
+                <h1 class="name-title">AMIRUL SHAH<span>BIN MD ROSLI</span></h1>
+                <p class="header-role">Senior Web Developer <span class="role-divider">|</span> Data Analytics Specialist</p>
+                <p class="header-tagline">"Building clean, efficient, and data-driven web experiences."</p>
+                <div class="header-contacts">
+                    <a href="mailto:amirulshah4012@gmail.com" class="contact-pill">
+                        <i class="fas fa-envelope"></i> amirulshah4012@gmail.com
+                    </a>
+                    <a href="tel:01158042310" class="contact-pill">
+                        <i class="fas fa-phone"></i> 011-5804 2310
+                    </a>
+                    <span class="contact-pill location">
+                        <i class="fas fa-map-marker-alt"></i> Selangor, Malaysia
+                    </span>
                 </div>
-                <div class="address-info">
-                    <span><i class="fas fa-map-marker-alt"></i> Lot 1928, Batu 9, Jalan Tanjung, Sijangkang, Telok Panglima Garang, Selangor</span>
-                </div>
-                <div class="personal-info">
-                    <span><i class="fas fa-user"></i> Single</span>
-                    <span><i class="fas fa-birthday-cake"></i> Born: June 8, 2003</span>
+                <div class="header-social">
+                    <a href="#" class="social-icon-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:amirulshah4012@gmail.com" class="social-icon-btn" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="portfolio.html" class="social-icon-btn" aria-label="Portfolio"><i class="fas fa-folder-open"></i></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
-            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-            <li><a href="#skills"><i class="fas fa-lightbulb"></i> Skills</a></li>
-            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
-            <li><a href="#interests"><i class="fas fa-heart"></i> Interests</a></li>
-            <li><a href="portfolio.html" class="portfolio-nav-link"><i class="fas fa-folder-open"></i> Portfolio</a></li>
-        </ul>
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <div class="nav-brand mono">&lt;AmirulShah /&gt;</div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#freelance"><i class="fas fa-laptop-code"></i> Freelance</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
+                <li><a href="#interests"><i class="fas fa-heart"></i> Interests</a></li>
+                <li><a href="portfolio.html" class="nav-cta"><i class="fas fa-rocket"></i> Portfolio</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
-        <section id="about">
-            <div class="section-header-content">
-                <i class="fas fa-user-circle section-icon"></i>
-                <p class="section-subheading">Who I Am</p>
-                <h2>About Me</h2>
+
+        <section id="about" class="reveal">
+            <div class="section-label">01. Who I Am</div>
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I'm <strong>Amirul Shah</strong>, a Senior Web Developer and Data Analytics Specialist with a passion for crafting clean, performant web solutions. I combine technical expertise in <span class="highlight">web development</span>, <span class="highlight">data analytics</span>, and engineering to build systems that are both functional and visually compelling.
+                    </p>
+                    <p>
+                        Currently at <strong>AR Edutech (M) Sdn Bhd</strong>, I design and build promotional websites, admin management systems, and data-driven dashboards — delivering end-to-end web solutions that improve business visibility and operational efficiency. My approach is always analytical, user-focused, and performance-driven.
+                    </p>
+                    <p>
+                        My background in Quality Assurance at <strong>KYB-UMW SDN BHD</strong> sharpened my attention to detail and systematic thinking — disciplines that continue to inform how I write reliable, precise, and well-tested code.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Certificates</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Commitment</span>
+                    </div>
+                </div>
             </div>
-            <p>
-                I am Amirul Shah Bin Md Rosli, a dynamic and detail-oriented professional with a strong background in both data analytics and quality assurance. My journey began with a focus on Mechanical Engineering at Politeknik Sultan Mizan Zainal Abidin from 2021 to 2024.
-            </p>
-            <p>
-                Currently, I serve as a Data Analytics professional at AirAsia@Ground Team Red SDN BHD, where I am instrumental in managing and analyzing operational data to drive efficient decision-making. My expertise lies in developing and maintaining user-friendly live dashboards using Google Sheets and MySQL, facilitating real-time data visualization and reporting for staff performance and resource allocation. I am adept at consolidating and validating staff data to ensure accuracy in primary data sources and utilize advanced formulas and data management techniques to streamline processes. Furthermore, I contribute to seamless operations by monitoring system and network performance, ensuring optimal IT infrastructure functionality within a fast-paced environment.
-            </p>
-            <p>
-                Prior to my current role, I gained valuable experience in Quality Assurance at KYB-UMW SDN BHD from 2021 to 2024. There, I was actively involved in quality assurance and equipment maintenance, responsible for inspecting and evaluating mechanical components to ensure compliance with quality standards. My responsibilities included the calibration and upkeep of precision measurement instruments, routine maintenance of production machinery, and systematic troubleshooting of equipment issues. I collaborated with cross-functional teams to identify root causes of defects and implemented corrective and preventive actions. This role significantly enhanced my technical proficiency in equipment handling, strengthened my analytical and problem-solving capabilities, and provided extensive exposure to quality control processes in a high-volume manufacturing setting.
-            </p>
         </section>
 
-        <section id="experience">
-            <div class="section-header-content">
-                <i class="fas fa-briefcase section-icon"></i>
-                <p class="section-subheading">My Journey</p>
-                <h2>Professional Experience</h2>
-            </div>
+        <section id="freelance" class="reveal">
+            <div class="section-label">02. Freelance</div>
+            <h2 class="section-title">Freelance Projects</h2>
 
-            <div class="company-logos">
-                <img src="logo/logoairasia.png" alt="AirAsia Logo" class="company-logo">
+            <div class="freelance-project-card">
+                <div class="fp-preview">
+                    <img src="img/seamountain.png" alt="Sea Mountain Website Preview">
+                    <div class="fp-preview-overlay">
+                        <a href="https://seamountain.co" target="_blank" class="fp-live-btn">
+                            <i class="fas fa-external-link-alt"></i> Visit Live Site
+                        </a>
+                    </div>
+                </div>
+                <div class="fp-body">
+                    <div class="fp-meta-row">
+                        <div class="fp-logo">
+                            <img src="logo/seaMLogo.png" alt="Sea Mountain">
+                        </div>
+                        <div>
+                            <h3 class="fp-title">Sea Mountain Adventure Race — Event Management Platform</h3>
+                            <p class="fp-role">Full-Stack Web Developer &nbsp;·&nbsp; Solo Developer</p>
+                            <p class="fp-dates"><i class="fas fa-calendar-alt"></i> 2025 – 2026 &nbsp;·&nbsp; <i class="fas fa-globe"></i> seamountain.co</p>
+                        </div>
+                    </div>
+                    <p class="fp-summary">
+                        Designed and built a complete event management web platform from scratch — covering <strong>35+ interconnected pages</strong> including public-facing site, participant registration, payment flow, admin operations, client portal, and a live race timing system.
+                    </p>
+                    <div class="fp-features">
+                        <div class="fp-feature">
+                            <i class="fas fa-layer-group"></i>
+                            <div>
+                                <strong>Multi-Step Registration</strong>
+                                <span>Dynamic forms, per-racer medical forms, conditional logic, early bird pricing &amp; real-time order summary</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-receipt"></i>
+                            <div>
+                                <strong>Payment &amp; Receipt Verification</strong>
+                                <span>Bank transfer receipt submission with admin approval dashboard and full status tracking</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-qrcode"></i>
+                            <div>
+                                <strong>QR Ticketing System</strong>
+                                <span>Unique QR ticket per registration with scanner for event-day check-in</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-stopwatch"></i>
+                            <div>
+                                <strong>Live Race Timing (RFID)</strong>
+                                <span>Real-time timing dashboard with RFID integration &amp; public leaderboard</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-ticket-alt"></i>
+                            <div>
+                                <strong>Voucher Engine</strong>
+                                <span>Category-aware discount codes with live before/after price preview and early bird awareness</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-user-shield"></i>
+                            <div>
+                                <strong>Client Portal</strong>
+                                <span>Separate login &amp; analytics dashboard via Firebase named app instances</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-fire"></i>
+                            <div>
+                                <strong>Firebase Backend</strong>
+                                <span>Realtime Database, Firebase Auth, REST API checks, real-time listeners &amp; maintenance mode</span>
+                            </div>
+                        </div>
+                        <div class="fp-feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <strong>Premium UI/UX</strong>
+                                <span>Glassmorphism cards, canvas particle animation, Google OAuth &amp; fully mobile-responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fp-tags">
+                        <span>HTML/CSS/JS</span><span>Firebase</span><span>RFID</span><span>QR System</span><span>Admin Dashboard</span><span>Client Portal</span><span>Live Timing</span><span>Google OAuth</span><span>Responsive UI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <div class="section-label">03. Career</div>
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-logo">
+                        <img src="logo/logoaredutech.png" alt="AR Edutech">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Web Developer &amp; Data Management Specialist</h3>
+                            <span class="timeline-badge current">Current</span>
+                        </div>
+                        <p class="timeline-company"><i class="fas fa-building"></i> AR Edutech (M) Sdn Bhd</p>
+                        <p class="timeline-meta"><i class="fas fa-map-marker-alt"></i> Klang, Malaysia &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> 2026 – Present</p>
+                        <ul class="timeline-list">
+                            <li>Designed and developed a company promotional website using <strong>HTML, CSS, and JavaScript</strong> to enhance brand visibility and customer engagement.</li>
+                            <li>Built and maintained a secure admin management system for updating promotional campaigns, product information, and website content.</li>
+                            <li>Integrated and managed customer data from <strong>CRM and OnPay</strong> platforms to ensure accurate customer records and efficient business operations.</li>
+                            <li>Developed administrative tools for product and promotion management, enabling monthly campaign updates through a centralized dashboard.</li>
+                            <li>Optimized website performance, responsiveness, and user experience across desktop and mobile devices.</li>
+                            <li>Collaborated with management to implement digital solutions that improved operational efficiency and marketing effectiveness.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>CRM</span><span>Admin Dashboard</span><span>Data Management</span>
+                        </div>
+                    </div>
                 </div>
 
-            <article class="job-entry">
-                <h3>Data Analytics | AirAsia@Ground Team Red SDN BHD</h3>
-                <p class="job-meta">Sepang, Malaysia | 2024 - present</p>
-                <ul>
-                    <li>Manages and analyzes operational data to support efficient decision-making across the organization.</li>
-                    <li>Develops and maintains user-friendly live dashboards using Google Sheets and MySQL, enabling real-time data visualization and reporting for staff performance and resource allocation.</li>
-                    <li>Regularly consolidates and validates staff data to ensure accuracy in the company's main data source.</li>
-                    <li>Utilizes advanced formulas and data management techniques to streamline processes.</li>
-                    <li>Monitors system and network performance to ensure optimal functionality of IT infrastructure, contributing to seamless operations and system reliability within a fast-paced environment.</li>
-                </ul>
-            </article>
-
-            <div class="company-logos">
-                <img src="logo/logokayaba.jpg" alt="KYB-UMW Logo" class="company-logo">
-                </div>
-                
-            <article class="job-entry">
-                <h3>Quality Assurance | KYB-UMW SDN BHD</h3>
-                <p class="job-meta">Telok Panglima Garang, Malaysia | 2021-2024</p>
-                <ul>
-                    <li>Actively involved in quality assurance and equipment maintenance, responsible for inspecting and evaluating mechanical components to ensure compliance with established quality standards.</li>
-                    <li>Responsibilities included the calibration and upkeep of precision measurement instruments, routine maintenance of production machinery, and systematic troubleshooting to resolve equipment issues efficiently.</li>
-                    <li>Collaborated closely with cross-functional teams to identify root causes of component defects and contributed to the implementation of corrective and preventive actions.</li>
-                    <li>Gained valuable exposure to quality control processes, enhanced technical proficiency in equipment handling, and strengthened analytical and problem-solving capabilities within a high-volume manufacturing environment.</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="education">
-            <div class="section-header-content">
-                <i class="fas fa-graduation-cap section-icon"></i>
-                <p class="section-subheading">My Academic Background</p>
-                <h2>Education</h2>
-            </div>
-
-            <div class="company-logos">
-                <img src="logo/logopoli.png" alt="Politeknik" class="company-logo">
+                <div class="timeline-item">
+                    <div class="timeline-logo">
+                        <img src="logo/logoairasia.png" alt="AirAsia">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Data Analytics &amp; Web Developer</h3>
+                        </div>
+                        <p class="timeline-company"><i class="fas fa-building"></i> AirAsia@Ground Team Red SDN BHD</p>
+                        <p class="timeline-meta"><i class="fas fa-map-marker-alt"></i> Sepang, Malaysia &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> 2024 – 2025</p>
+                        <ul class="timeline-list">
+                            <li>Developed and maintained live data dashboards using <strong>Google Sheets, MySQL</strong>, and web-based tools for real-time staff performance monitoring.</li>
+                            <li>Built and managed internal web tools and reporting interfaces that streamlined operational decision-making across teams.</li>
+                            <li>Consolidated and validated staff data to ensure accuracy across the company's primary data sources using advanced formulas and automation.</li>
+                            <li>Monitored system and network performance, contributing to seamless IT infrastructure in a high-tempo aviation environment.</li>
+                            <li>Translated raw operational data into actionable visual reports and dashboards for management review.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>MySQL</span><span>Google Sheets</span><span>Looker Studio</span><span>HTML/CSS</span><span>Data Visualization</span>
+                        </div>
+                    </div>
                 </div>
 
-            <article class="edu-entry">
-                <h3>POLITEKNIK SULTAN MIZAN ZAINAL ABIDIN</h3>
-                <p>Mechanical Engineering</p>
-                <p class="edu-meta">Dungun, Terengganu, Malaysia | 2021-2024</p>
-            </article>
-
-            <div class="company-logos">
-                <img src="logo/logosmksj.jpg" alt="SMK Sijangkang Jaya Logo" class="company-logo">
+                <div class="timeline-item">
+                    <div class="timeline-logo">
+                        <img src="logo/logokayaba.jpg" alt="KYB-UMW">
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Quality Assurance Engineer</h3>
+                        </div>
+                        <p class="timeline-company"><i class="fas fa-building"></i> KYB-UMW SDN BHD</p>
+                        <p class="timeline-meta"><i class="fas fa-map-marker-alt"></i> Telok Panglima Garang, Malaysia &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> 2021 – 2024</p>
+                        <ul class="timeline-list">
+                            <li>Inspected and evaluated mechanical components to ensure strict compliance with quality standards in high-volume manufacturing.</li>
+                            <li>Calibrated and maintained precision measurement instruments, ensuring data accuracy in quality reporting.</li>
+                            <li>Collaborated with cross-functional teams to identify root causes of defects and implement corrective and preventive actions.</li>
+                            <li>Developed systematic troubleshooting processes that improved analytical workflow and reduced equipment downtime.</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Quality Control</span><span>Engineering Drawing</span><span>Data Reporting</span><span>Precision Calibration</span>
+                        </div>
+                    </div>
                 </div>
 
-            <article class="edu-entry">
-                <h3>SEKOLAH MENENGAH KEBANGSAAN SIJANGKANG JAYA</h3>
-                <p>Secondary School</p>
-                <p class="edu-meta">Sijangkang Jaya, Malaysia | 2016-2021</p>
-            </article>
+            </div>
         </section>
 
-        <section id="skills">
-            <div class="section-header-content">
-                <i class="fas fa-lightbulb section-icon"></i>
-                <p class="section-subheading">What I Excel At</p>
-                <h2>Skills</h2>
+        <section id="education" class="reveal">
+            <div class="section-label">04. Academic</div>
+            <h2 class="section-title">Education</h2>
+            <div class="edu-grid">
+                <div class="edu-card">
+                    <div class="edu-logo">
+                        <img src="logo/logopoli.png" alt="Politeknik">
+                    </div>
+                    <div class="edu-body">
+                        <h3>Politeknik Sultan Mizan Zainal Abidin</h3>
+                        <p class="edu-degree">Diploma in Mechanical Engineering</p>
+                        <p class="edu-meta"><i class="fas fa-map-marker-alt"></i> Dungun, Terengganu &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> 2021 – 2024</p>
+                    </div>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-logo">
+                        <img src="logo/logosmksj.jpg" alt="SMK Sijangkang Jaya">
+                    </div>
+                    <div class="edu-body">
+                        <h3>SMK Sijangkang Jaya</h3>
+                        <p class="edu-degree">Sijil Pelajaran Malaysia (SPM)</p>
+                        <p class="edu-meta"><i class="fas fa-map-marker-alt"></i> Sijangkang, Selangor &nbsp;·&nbsp; <i class="fas fa-calendar-alt"></i> 2016 – 2021</p>
+                    </div>
+                </div>
             </div>
-            <h3>Software Skills</h3>
-            <ul class="skills-list">
-                <li><a href="#" class="skill-item">Word<span class="skill-level-tooltip">Intermediate</span></a></li>
-                <li><a href="#" class="skill-item">Microsoft Slide<span class="skill-level-tooltip">Expert</span></a></li>
-                <li><a href="#" class="skill-item">Inventor<span class="skill-level-tooltip">Intermediate</span></a></li>
-                <li><a href="#" class="skill-item">Looker Studio<span class="skill-level-tooltip">Expert</span></a></li>
-                <li><a href="#" class="skill-item">Photoshop<span class="skill-level-tooltip">Basic</span></a></li>
-                <li><a href="#" class="skill-item">MySQL<span class="skill-level-tooltip">Intermediate</span></a></li>
-                <li><a href="#" class="skill-item">Excel<span class="skill-level-tooltip">Expert</span></a></li>
-                <li><a href="#" class="skill-item">Google Sheets<span class="skill-level-tooltip">Expert</span></a></li>
-                <li><a href="#" class="skill-item">Autocad<span class="skill-level-tooltip">Intermediate</span></a></li>
-                <li><a href="#" class="skill-item">Coding<span class="skill-level-tooltip">Basic</span></a></li>
-                <li><a href="#" class="skill-item">Lightroom<span class="skill-level-tooltip">Basic</span></a></li>
-            </ul>
-
-            <h3>Mechanical & Engineering Skills</h3>
-            <ul class="skills-list">
-                <li><a href="#" class="skill-item">Shielded Metal Arc Welding (SMAW)<span class="skill-level-tooltip">Intermediate</span></a></li>
-                <li><a href="#" class="skill-item">Gas Metal Arc Welding (GMAW)<span class="skill-level-tooltip">Intermediate</span></a></li>
-                <li><a href="#" class="skill-item">Gas Tungsten Arc Welding (GTAW)<span class="skill-level-tooltip">Basic</span></a></li>
-                <li><a href="#" class="skill-item">Lathe Machine Operation / Machining (Lathe)<span class="skill-level-tooltip">Expert</span></a></li>
-                <li><a href="#" class="skill-item">Engineering Drawing<span class="skill-level-tooltip">Expert</span></a></li>
-            </ul>
         </section>
 
-    <section id="certificates" class="certificates-section-container">
-        <div class="section-header">
-            <div style="text-align: center; margin-bottom: 10px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ff575a" style="vertical-align: middle;">
-                <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
-            </svg>
+        <section id="skills" class="reveal">
+            <div class="section-label">05. Expertise</div>
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-code"></i> Web Development</h3>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>HTML5 &amp; CSS3</span><span class="skill-pct">92%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>JavaScript (ES6+)</span><span class="skill-pct">78%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Responsive Design</span><span class="skill-pct">90%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>MySQL / Database</span><span class="skill-pct">75%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Git &amp; Version Control</span><span class="skill-pct">68%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="68"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-chart-bar"></i> Data &amp; Analytics</h3>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Google Sheets</span><span class="skill-pct">95%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Microsoft Excel</span><span class="skill-pct">95%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Looker Studio</span><span class="skill-pct">88%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header"><span>Data Visualization</span><span class="skill-pct">90%</span></div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-palette"></i> Design &amp; Creative Tools</h3>
+                    <div class="skills-tags">
+                        <span class="stag"><i class="fas fa-file-powerpoint"></i> Microsoft PowerPoint</span>
+                        <span class="stag"><i class="fas fa-file-word"></i> Microsoft Word</span>
+                        <span class="stag"><i class="fas fa-camera"></i> Adobe Photoshop</span>
+                        <span class="stag"><i class="fas fa-image"></i> Adobe Lightroom</span>
+                        <span class="stag"><i class="fas fa-drafting-compass"></i> AutoCAD</span>
+                        <span class="stag"><i class="fas fa-cube"></i> Autodesk Inventor</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title"><i class="fas fa-hard-hat"></i> Engineering</h3>
+                    <div class="skills-tags">
+                        <span class="stag">SMAW Welding</span>
+                        <span class="stag">GMAW Welding</span>
+                        <span class="stag">GTAW Welding</span>
+                        <span class="stag">Lathe Machine Operation</span>
+                        <span class="stag">Engineering Drawing</span>
+                        <span class="stag">Quality Control &amp; QA</span>
+                    </div>
+                </div>
+
             </div>
-            <h2>MY ACHIEVEMENTS</h2>
-            <h1 style="font-size: 2.5em; text-align: center; margin-top: 0;">Certificates</h1>
-        </div>
-
-        <div class="certificate-logos">
-        <img src="logo/logogoogle.png" alt="Google Logo" class="cert-logo">
-        <img src="logo/logowazza.png" alt="WazzaRed Logo" class="cert-logo">
-        <img src="logo/logomicrosoft.png" alt="Microsoft Logo" class="cert-logo">
-        <img src="logo/logohrdc.png" alt="Human Resource Logo" class="cert-logo">
-        <img src="logo/logobiji.png" alt="Biji Biji Logo" class="cert-logo">
-        <img src="logo/logomereka.png" alt="Mereka Logo" class="cert-logo">
-        </div>
-
-        <div id="certificates-list" class="certificates-wrapper expanded">
-        
-        <div class="certificate-entry">
-            <h3>KURSUS PENGUASAAN E-DATA & PENGURUSAN DASHBOARD DENGAN GOOGLE SHEETS</h3>
-            <p class="certificate-meta">Issued by WazzaRed (Wazza Digital Sdn Bhd) | May 27-29, 2025</p>
-            <p class="certificate-description">Successfully completed a comprehensive course on E-Data Mastery & Dashboard Management with Google Sheets, focusing on advanced data manipulation and visualization techniques.</p>
-            <a href="cert/WazzaCertificate.jpeg" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>EXPLORE AI BASICS</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 26, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Explore AI Basics.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>EXPLORE GENERATIVE AI</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 26, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Explore Generative AI.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-
-        <div class="certificate-entry">
-            <h3>EXPLORE INTERNET SEARCH AND BEYOND</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 27, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Explore Internet Search and Beyond.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>EXPLORE RESPONSIBLE AI</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 27, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Explore Responsible AI.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>GET STARTED WITH MICROSOFT COPILOT</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 27, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Get Started with Microsoft Copilot.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>BOOST YOUR PRODUCTIVITY WITH MICROSOFT COPILOT</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 27, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Boost Your Productivity with Microsoft Copilot.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>EXPLORE AI FOR ALL</h3>
-            <p class="certificate-meta">Issued by Microsoft | September 27, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Explore AI for All.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>POWERPOINT EXPERT</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 1, 2025</p>
-            <p class="certificate-description">Tips and Trick of POWERPOINT</p>
-            <a href="cert/Powerpoint CERT.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>EXCEL TIPS & TRICKS</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/EXCEL TIPS & TRICKS 2021.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>KURSUS MICROSOFT EXCEL</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/KURSUS MICROSOFT EXCEL..pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>POWERFUL DATA ANALYSIS AND DATA MODELING IN EXCEL</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Powerful data analysis and data modeling in excel.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>TOP PRACTICAL ADVANCED EXCEL</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/TOP PRACTICAL ADVANCED EXCEL.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>THE BEGINNER'S GUIDE TO EXCEL</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/The Beginner's Guide To Excel.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-        
-        <div class="certificate-entry">
-            <h3>GOOGLE SHEET UNTUK PANGKALAN DATA PELANGGAN</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Google Sheet Untuk Pangkalan Data Pelanggan.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-
-        <div class="certificate-entry">
-            <h3>COLLABORATING EFFECTIVELY WITH GOOGLE SHEETS</h3>
-            <p class="certificate-meta">Issued by Human Resource Development Corporation | October 8, 2025</p>
-            <p class="certificate-description"></p>
-            <a href="cert/Collaborating Effectively With Google Sheets.pdf" target="_blank" class="btn-certificate">View Credential</a>
-        </div>
-        </div>
-
-        <button id="toggle-certificates" class="toggle-certificates-btn" aria-expanded="true" aria-controls="certificates-list">
-        Show Less Certificates
-        </button>
-
-    </section>
-
-        <section id="interests">
-            <div class="section-header-content">
-                <i class="fas fa-heart section-icon"></i>
-                <p class="section-subheading">Beyond My Profession</p>
-                <h2>Interests</h2>
-            </div>
-            <ul class="interests-list">
-                <li><a href="#" class="interest-item">Coding</a></li>
-                <li><a href="#" class="interest-item">Photography</a></li>
-                <li><a href="#" class="interest-item">Travel</a></li>
-                <li><a href="#" class="interest-item">Gaming</a></li>
-                <li><a href="#" class="interest-item">Nature</a></li>
-            </ul>
         </section>
+
+        <section id="certificates" class="reveal certificates-section-container">
+            <div class="section-label">06. Credentials</div>
+            <h2 class="section-title">Certificates</h2>
+
+            <div class="certificate-logos">
+                <img src="logo/logogoogle.png" alt="Google" class="cert-logo">
+                <img src="logo/logowazza.png" alt="WazzaRed" class="cert-logo">
+                <img src="logo/logomicrosoft.png" alt="Microsoft" class="cert-logo">
+                <img src="logo/logohrdc.png" alt="HRDC" class="cert-logo">
+                <img src="logo/logobiji.png" alt="Biji Biji" class="cert-logo">
+                <img src="logo/logomereka.png" alt="Mereka" class="cert-logo">
+            </div>
+
+            <div id="certificates-list" class="certificates-wrapper">
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Google</span>
+                        <h3>Google Certified Educator</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-building"></i> Google</p>
+                    <a href="cert/google educator.jpeg" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">WazzaRed</span>
+                        <h3>Kursus Penguasaan E-Data &amp; Pengurusan Dashboard dengan Google Sheets</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> May 27–29, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Wazza Digital Sdn Bhd</p>
+                    <p class="certificate-description">Advanced data manipulation and visualization techniques using Google Sheets for live dashboard management.</p>
+                    <a href="cert/WazzaCertificate.jpeg" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Explore AI Basics</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 26, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Explore AI Basics.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Explore Generative AI</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 26, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Explore Generative AI.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Explore Internet Search and Beyond</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 27, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Explore Internet Search and Beyond.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Explore Responsible AI</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 27, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Explore Responsible AI.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Get Started with Microsoft Copilot</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 27, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Get Started with Microsoft Copilot.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Boost Your Productivity with Microsoft Copilot</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 27, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Boost Your Productivity with Microsoft Copilot.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">Microsoft</span>
+                        <h3>Explore AI for All</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> September 27, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Microsoft</p>
+                    <a href="cert/Explore AI for All.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>PowerPoint Expert</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 1, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <p class="certificate-description">Advanced PowerPoint design and presentation techniques.</p>
+                    <a href="cert/Powerpoint CERT.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>Excel Tips &amp; Tricks</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/EXCEL TIPS & TRICKS 2021.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>Kursus Microsoft Excel</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/KURSUS MICROSOFT EXCEL..pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>Powerful Data Analysis and Data Modeling in Excel</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/Powerful data analysis and data modeling in excel.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>Top Practical Advanced Excel</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/TOP PRACTICAL ADVANCED EXCEL.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>The Beginner's Guide to Excel</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/The Beginner's Guide To Excel.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>Google Sheet untuk Pangkalan Data Pelanggan</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/Google Sheet Untuk Pangkalan Data Pelanggan.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="certificate-entry">
+                    <div class="cert-header">
+                        <span class="cert-issuer-badge">HRDC</span>
+                        <h3>Collaborating Effectively with Google Sheets</h3>
+                    </div>
+                    <p class="certificate-meta"><i class="fas fa-calendar-alt"></i> October 8, 2025 &nbsp;·&nbsp; <i class="fas fa-building"></i> Human Resource Development Corporation</p>
+                    <a href="cert/Collaborating Effectively With Google Sheets.pdf" target="_blank" class="btn-certificate">View Credential <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+            </div>
+
+            <button id="toggle-certificates" class="toggle-certificates-btn" aria-expanded="false" aria-controls="certificates-list">
+                <i class="fas fa-chevron-down"></i> Show All Certificates
+            </button>
+        </section>
+
+        <section id="interests" class="reveal">
+            <div class="section-label">07. Beyond Work</div>
+            <h2 class="section-title">Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <i class="fas fa-code interest-icon"></i>
+                    <span>Coding</span>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-camera interest-icon"></i>
+                    <span>Photography</span>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-plane interest-icon"></i>
+                    <span>Travel</span>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-gamepad interest-icon"></i>
+                    <span>Gaming</span>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-leaf interest-icon"></i>
+                    <span>Nature</span>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <section class="call-to-action-portfolio">
-        <div class="section-header-content">
-            <i class="fas fa-rocket section-icon"></i>
-            <p class="section-subheading">See My Work In Action</p>
-            <h2>Explore My Portfolio</h2>
-        </div>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="portfolio.html" class="btn-primary" style="padding: 12px 32px; font-size: 1.1em; border-radius: 6px; background: #ff575a; color: #fff; text-decoration: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: background 0.2s;">
-                View Full Portfolio
+    <section class="cta-section">
+        <div class="cta-content">
+            <p class="cta-label">Interested in working together?</p>
+            <h2>Let's Build Something Great</h2>
+            <p class="cta-sub">Check out my portfolio to see my projects in action.</p>
+            <a href="portfolio.html" class="btn-cta">
+                <i class="fas fa-rocket"></i> View My Portfolio
             </a>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Amirul Shah Bin Md Rosli. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="mono footer-logo">&lt;AmirulShah /&gt;</span>
+                <p>Senior Web Developer &amp; Data Analytics Specialist</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="mailto:amirulshah4012@gmail.com">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:amirulshah4012@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Amirul Shah Bin Md Rosli. Crafted with <i class="fas fa-heart" style="color:#FF5A5F"></i> &amp; code.</p>
+        </div>
     </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-

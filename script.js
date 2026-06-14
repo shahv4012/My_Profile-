@@ -1,285 +1,226 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("Website Loaded Successfully!");
 
-    // --- Smooth Scrolling for Navigation Links (applies to both index.html and portfolio.html) ---
-    const smoothScroll = (selector) => {
-        document.querySelectorAll(selector).forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // Check if it's an internal link (starts with #) or external
-                if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault(); // Stop default jump to top or section
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-
-                    if (targetSection) {
-                        const navHeight = this.closest('nav') ? this.closest('nav').offsetHeight : 0;
-                        const offsetTop = targetSection.offsetTop - navHeight - 20; // Adjusted offset for padding
-
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
+    // ===== SCROLL REVEAL =====
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
         });
-    };
+    }, { threshold: 0.07 });
 
-    // Apply smooth scrolling to index.html navigation
-    if (document.querySelector('nav ul li a[href^="#"]')) { // This checks for index.html's nav
-        smoothScroll('nav ul li a[href^="#"]');
-    }
-    // Apply smooth scrolling to portfolio.html navigation
-    if (document.querySelector('.portfolio-nav ul li a[href^="#"]')) { // This checks for portfolio.html's nav
-        smoothScroll('.portfolio-nav ul li a[href^="#"]');
-    }
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-
-    // --- Active class for main navigation based on scroll position (only for index.html) ---
-    // This part should specifically check if it's the index page before observing
-    const mainNav = document.querySelector('nav');
-    const isIndexPage = document.body.classList.contains('index-page'); // Add a class 'index-page' to <body> in index.html
-
-    if (mainNav && isIndexPage) { 
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav ul li a[href^="#"]');
-
-        const observerOptions = {
-            root: null,
-            rootMargin: "-20% 0px -80% 0px",
-            threshold: 0
-        };
-
-        const sectionObserver = new IntersectionObserver((entries) => {
+    // ===== SKILL BAR ANIMATION =====
+    const skillsSection = document.querySelector('#skills');
+    if (skillsSection) {
+        const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
+                    entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                        bar.style.width = bar.dataset.width + '%';
                     });
-                    const currentNavLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-                    if (currentNavLink) {
-                        currentNavLink.classList.add('active');
-                    }
+                    skillObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.25 });
+        skillObserver.observe(skillsSection);
+    }
 
-        sections.forEach(section => {
-            sectionObserver.observe(section);
+    // ===== STICKY NAV SHADOW =====
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+    }
+
+    // ===== ACTIVE NAV LINK ON SCROLL =====
+    const mainSections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.main-nav ul li a[href^="#"]');
+
+    if (mainSections.length && navLinks.length) {
+        const activeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const link = document.querySelector(`.main-nav ul li a[href="#${entry.target.id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -78% 0px' });
+
+        mainSections.forEach(s => activeObserver.observe(s));
+    }
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                const navH = nav ? nav.offsetHeight : 0;
+                window.scrollTo({ top: target.offsetTop - navH - 12, behavior: 'smooth' });
+                document.getElementById('navMenu')?.classList.remove('open');
+            }
+        });
+    });
+
+    // ===== MOBILE NAV TOGGLE =====
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!nav?.contains(e.target)) {
+                navMenu.classList.remove('open');
+            }
         });
     }
 
-    // --- Certificates Toggle Functionality (only for index.html) ---
-    const toggleBtn = document.querySelector('.toggle-certificates-btn');
-    const certificatesWrapper = document.querySelector('.certificates-wrapper');
+    // ===== CERTIFICATES TOGGLE =====
+    const toggleBtn = document.getElementById('toggle-certificates');
+    const certWrapper = document.querySelector('.certificates-wrapper');
 
-    if (toggleBtn && certificatesWrapper) { // Check if elements exist on the page
-        certificatesWrapper.style.maxHeight = '0'; // Ensure it's hidden initially by JS
-        toggleBtn.textContent = 'Show More Certificates'; // Initial text
-
+    if (toggleBtn && certWrapper) {
         toggleBtn.addEventListener('click', () => {
-            if (certificatesWrapper.classList.contains('expanded')) {
-                certificatesWrapper.classList.remove('expanded');
-                certificatesWrapper.style.maxHeight = '0'; // Collapse with animation
-                toggleBtn.textContent = 'Show More Certificates';
+            const isExpanded = certWrapper.classList.contains('expanded');
+            certWrapper.classList.toggle('expanded');
+            toggleBtn.classList.toggle('open');
+            if (isExpanded) {
+                toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Show All Certificates';
+                toggleBtn.setAttribute('aria-expanded', 'false');
             } else {
-                certificatesWrapper.classList.add('expanded');
-                certificatesWrapper.style.maxHeight = certificatesWrapper.scrollHeight + "px"; // Expand to full height
-                toggleBtn.textContent = 'Show Less Certificates';
-                document.querySelector('#certificates').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                toggleBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Certificates';
+                toggleBtn.setAttribute('aria-expanded', 'true');
             }
         });
     }
 
+    // ===== SCROLL TO TOP =====
+    const scrollTopBtn = document.getElementById('scrollTop');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 380);
+        }, { passive: true });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
-    // --- Project Card Slider Functionality (for portfolio.html) ---
-    const projectCardsContainer = document.querySelector('.portfolio-slider-container');
-    if (projectCardsContainer) { // Check if the portfolio slider container exists
-        const projectCards = document.querySelectorAll('.portfolio-grid .project-card');
-        const prevBtn = projectCardsContainer.querySelector('.prev-slide');
-        const nextBtn = projectCardsContainer.querySelector('.next-slide');
-        const dotsContainer = projectCardsContainer.querySelector('.slider-dots-container');
+    // ===== PROJECT CARD SLIDER (portfolio.html) =====
+    const sliderContainer = document.querySelector('.portfolio-slider-container');
+    if (sliderContainer) {
+        const cards = sliderContainer.querySelectorAll('.portfolio-grid .project-card');
+        const prevBtn = sliderContainer.querySelector('.prev-slide');
+        const nextBtn = sliderContainer.querySelector('.next-slide');
+        const dotsContainer = sliderContainer.querySelector('.slider-dots-container');
+        let current = 0;
+        let autoplay;
 
-        let currentProjectIndex = 0;
-        let autoplayInterval;
-
-        function showProjectCard(index) {
-            // Remove active-slide from all and hide them visually
-            projectCards.forEach((card, i) => {
-                card.classList.remove('active-slide');
-                card.style.opacity = '0';
-                card.style.visibility = 'hidden';
-                card.style.zIndex = '1'; // Ensure non-active slides are behind
-                card.setAttribute('aria-hidden', 'true'); // For accessibility
+        function showCard(index) {
+            cards.forEach(c => {
+                c.classList.remove('active-slide');
+                c.style.opacity = '0';
+                c.style.visibility = 'hidden';
+                c.style.zIndex = '1';
+                c.setAttribute('aria-hidden', 'true');
             });
-
-            // Show the active slide
-            if (projectCards[index]) {
-                projectCards[index].classList.add('active-slide');
-                projectCards[index].style.opacity = '1';
-                projectCards[index].style.visibility = 'visible';
-                projectCards[index].style.zIndex = '2'; // Bring active slide to front
-                projectCards[index].setAttribute('aria-hidden', 'false'); // For accessibility
+            if (cards[index]) {
+                cards[index].classList.add('active-slide');
+                cards[index].style.opacity = '1';
+                cards[index].style.visibility = 'visible';
+                cards[index].style.zIndex = '2';
+                cards[index].setAttribute('aria-hidden', 'false');
             }
-            updateDots(index);
+            buildDots(index);
         }
 
-        function nextProjectCard() {
-            currentProjectIndex = (currentProjectIndex + 1) % projectCards.length;
-            showProjectCard(currentProjectIndex);
-        }
+        function next() { current = (current + 1) % cards.length; showCard(current); }
+        function prev() { current = (current - 1 + cards.length) % cards.length; showCard(current); }
 
-        function prevProjectCard() {
-            currentProjectIndex = (currentProjectIndex - 1 + projectCards.length) % projectCards.length;
-            showProjectCard(currentProjectIndex);
-        }
-
-        function updateDots(index) {
-            if (dotsContainer) {
-                dotsContainer.innerHTML = ''; // Clear existing dots
-                for (let i = 0; i < projectCards.length; i++) {
-                    const dot = document.createElement('button'); // Use button for accessibility
-                    dot.classList.add('dot');
-                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`); // For accessibility
-                    if (i === index) {
-                        dot.classList.add('active');
-                        dot.setAttribute('aria-current', 'true'); // For accessibility
-                    }
-                    dot.addEventListener('click', () => {
-                        currentProjectIndex = i;
-                        showProjectCard(currentProjectIndex);
-                        resetAutoplay();
-                    });
-                    dotsContainer.appendChild(dot);
-                }
-            }
+        function buildDots(active) {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'dot' + (i === active ? ' active' : '');
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                if (i === active) dot.setAttribute('aria-current', 'true');
+                dot.addEventListener('click', () => { current = i; showCard(current); resetAutoplay(); });
+                dotsContainer.appendChild(dot);
+            });
         }
 
         function startAutoplay() {
-            clearInterval(autoplayInterval);
-            if (projectCards.length > 1) {
-                autoplayInterval = setInterval(nextProjectCard, 5000);
-            }
+            clearInterval(autoplay);
+            if (cards.length > 1) autoplay = setInterval(next, 5000);
         }
+        function resetAutoplay() { clearInterval(autoplay); startAutoplay(); }
 
-        function resetAutoplay() {
-            clearInterval(autoplayInterval);
+        if (cards.length > 0) {
+            showCard(current);
             startAutoplay();
-        }
+            prevBtn?.addEventListener('click', () => { prev(); resetAutoplay(); });
+            nextBtn?.addEventListener('click', () => { next(); resetAutoplay(); });
 
-        // Initialize slider functionality
-        if (projectCards.length > 0) {
-            showProjectCard(currentProjectIndex);
-            startAutoplay();
-
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    prevProjectCard();
-                    resetAutoplay();
-                });
-                prevBtn.setAttribute('aria-label', 'Previous slide'); // For accessibility
-            }
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    nextProjectCard();
-                    resetAutoplay();
-                });
-                nextBtn.setAttribute('aria-label', 'Next slide'); // For accessibility
-            }
-
-            // Keyboard navigation for slider
-            projectCardsContainer.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevProjectCard();
-                    resetAutoplay();
-                } else if (e.key === 'ArrowRight') {
-                    nextProjectCard();
-                    resetAutoplay();
-                }
+            sliderContainer.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') { prev(); resetAutoplay(); }
+                if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
             });
 
-            // Touch events for mobile swipe
             let touchStartX = 0;
-            let touchEndX = 0;
-            projectCardsContainer.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true }); // passive: true for better scroll performance
-            projectCardsContainer.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
+            sliderContainer.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            sliderContainer.addEventListener('touchend', e => {
+                const diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); resetAutoplay(); }
             }, { passive: true });
-
-            function handleSwipe() {
-                if (touchEndX < touchStartX - 50) nextProjectCard();
-                if (touchEndX > touchStartX + 50) prevProjectCard();
-                resetAutoplay();
-            }
         }
     }
 
-    // --- Image Modal/Lightbox Functionality (for portfolio.html) ---
+    // ===== IMAGE MODAL (portfolio.html) =====
     const imageModal = document.getElementById('imageModal');
     const closeModalBtn = document.querySelector('.close-modal-btn');
     const modalImage = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modal-caption');
-    const openImageModalButtons = document.querySelectorAll('.open-image-modal');
+    const openModalBtns = document.querySelectorAll('.open-image-modal');
 
-    if (imageModal && closeModalBtn && modalImage && openImageModalButtons.length > 0) {
-        openImageModalButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault(); 
-                const imageUrl = button.dataset.image;
-                const imageAlt = button.closest('.project-card').querySelector('img').alt; // Get alt text from project card image
-                const projectTitle = button.closest('.project-card').querySelector('h3').textContent; // Get project title
-
-                if (imageUrl) {
-                    modalImage.src = imageUrl;
-                    modalImage.alt = imageAlt;
-                    if (modalCaption) {
-                        modalCaption.textContent = projectTitle;
-                    }
-                    imageModal.style.display = 'block'; // Show the modal
-                    imageModal.classList.remove('closing'); // Ensure fade-in animation
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling of main page when modal is open
+    if (imageModal && closeModalBtn && modalImage && openModalBtns.length) {
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                const url = btn.dataset.image;
+                const card = btn.closest('.project-card');
+                if (url) {
+                    modalImage.src = url;
+                    modalImage.alt = card?.querySelector('img')?.alt || '';
+                    if (modalCaption) modalCaption.textContent = card?.querySelector('h3')?.textContent || '';
+                    imageModal.style.display = 'block';
+                    imageModal.classList.remove('closing');
+                    document.body.style.overflow = 'hidden';
                 }
             });
         });
 
-        // Close modal when X button is clicked
-        closeModalBtn.addEventListener('click', () => {
-            imageModal.classList.add('closing'); // Add closing animation class
+        function closeModal() {
+            imageModal.classList.add('closing');
             imageModal.addEventListener('animationend', function handler() {
-                imageModal.style.display = 'none'; // Hide after animation
-                imageModal.removeEventListener('animationend', handler); // Remove listener to avoid multiple calls
-                document.body.style.overflow = ''; // Re-enable scrolling of main page
+                imageModal.style.display = 'none';
+                imageModal.removeEventListener('animationend', handler);
+                document.body.style.overflow = '';
             });
-        });
+        }
 
-        // Close modal when clicking outside the content (on the overlay)
-        window.addEventListener('click', (e) => {
-            if (e.target === imageModal) {
-                imageModal.classList.add('closing');
-                imageModal.addEventListener('animationend', function handler() {
-                    imageModal.style.display = 'none';
-                    imageModal.removeEventListener('animationend', handler);
-                    document.body.style.overflow = '';
-                });
-            }
-        });
-        
-        // Prevent modal from closing when clicking inside the content itself
-        imageModal.querySelector('.image-modal-content').addEventListener('click', (e) => {
-            e.stopPropagation(); // Stop event from bubbling up to window click listener
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && imageModal.style.display === 'block') { // Check for 'block' display
-                closeModalBtn.click(); // Programmatically click the close button to trigger animation
-            }
+        closeModalBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', e => { if (e.target === imageModal) closeModal(); });
+        imageModal.querySelector('.image-modal-content')?.addEventListener('click', e => e.stopPropagation());
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && imageModal.style.display === 'block') closeModal();
         });
     }
 });
