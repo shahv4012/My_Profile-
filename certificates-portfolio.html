@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Portfolio — Amirul Shah Bin Md Rosli</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        @page { size: A4; margin: 0; }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --accent: #FF5A5F;
+            --navy: #0d1117;
+            --navy-mid: #161b22;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e8eaed;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ===== PRINT BAR ===== */
+        .print-bar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--navy);
+            color: #fff;
+            padding: 11px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+            font-size: 0.85em;
+            gap: 12px;
+        }
+        .print-bar-left { display: flex; align-items: center; gap: 16px; }
+        .print-bar-left strong { color: #fff; }
+        .print-bar-left span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82em;
+            color: #445566;
+        }
+        .btn-pdf {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 0.88em;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: flex; align-items: center; gap: 7px;
+            transition: background 0.2s;
+        }
+        .btn-pdf:hover { background: #e04b50; }
+
+        /* ===== WRAPPER ===== */
+        .pages {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            padding: 24px 0 40px;
+        }
+
+        /* ===== A4 PAGE ===== */
+        .page {
+            width: 794px;
+            min-height: 1123px;
+            background: #fff;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.14);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+        .page:last-child { page-break-after: auto; }
+
+        /* ========================================
+           PAGE 1 — COVER
+        ======================================== */
+        .page-cover {
+            background: linear-gradient(140deg, #080c14 0%, var(--navy) 50%, #1a0608 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 60px;
+            color: #fff;
+            position: relative;
+        }
+
+        .cover-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,90,95,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,90,95,0.04) 1px, transparent 1px);
+            background-size: 44px 44px;
+        }
+
+        .cover-inner { position: relative; z-index: 1; }
+
+        .cover-photo {
+            width: 110px; height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 0 6px rgba(255,90,95,0.14);
+            margin: 0 auto 24px;
+            display: block;
+        }
+
+        .cover-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72em;
+            color: var(--accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .cover-name {
+            font-size: 2.4em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .cover-name span {
+            display: block;
+            font-size: 0.42em;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: #8899aa;
+            margin-top: 4px;
+        }
+
+        .cover-title {
+            font-size: 0.88em;
+            color: #8899aa;
+            letter-spacing: 1px;
+            margin-bottom: 36px;
+        }
+        .cover-title span { color: var(--accent); margin: 0 8px; }
+
+        .cover-divider {
+            width: 60px; height: 2px;
+            background: var(--accent);
+            margin: 0 auto 36px;
+        }
+
+        .cover-doc-title {
+            font-size: 1.7em;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .cover-doc-sub {
+            font-size: 0.85em;
+            color: #556677;
+            margin-bottom: 40px;
+        }
+
+        .cover-stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        .cover-stat {
+            text-align: center;
+        }
+        .cover-stat-num {
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        .cover-stat-label {
+            font-size: 0.7em;
+            color: #445566;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cover-footer {
+            position: absolute;
+            bottom: 32px;
+            left: 0; right: 0;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7em;
+            color: #2a3444;
+            letter-spacing: 1px;
+        }
+
+        /* ========================================
+           PAGE 2 — CERTIFICATE INDEX
+        ======================================== */
+        .page-index { padding: 48px 50px; }
+
+        .page-header {
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #f0f2f5;
+            position: relative;
+        }
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 40px; height: 2px;
+            background: var(--accent);
+        }
+        .page-header-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68em;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 4px;
+        }
+        .page-header h2 {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .index-table { width: 100%; border-collapse: collapse; }
+        .index-table thead th {
+            font-size: 0.65em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8899aa;
+            padding: 8px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e8eaed;
+            background: #f7f8fa;
+        }
+        .index-table tbody tr {
+            border-bottom: 1px solid #f0f2f5;
+            transition: background 0.15s;
+        }
+        .index-table tbody tr:hover { background: #f7f8fa; }
+        .index-table tbody td {
+            padding: 9px 10px;
+            vertical-align: middle;
+        }
+        .idx-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7em;
+            color: var(--accent);
+            font-weight: 700;
+            width: 32px;
+        }
+        .idx-title { font-size: 0.78em; font-weight: 600; color: var(--navy); line-height: 1.35; }
+        .idx-issuer {
+            font-size: 0.72em;
+            color: #fff;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-align: center;
+        }
+        .idx-issuer.google { background: #4285F4; }
+        .idx-issuer.microsoft { background: #00a4ef; }
+        .idx-issuer.wazza { background: #e04b50; }
+        .idx-issuer.hrdc { background: #2d6a4f; }
+        .idx-date { font-size: 0.7em; color: #8899aa; white-space: nowrap; }
+        .idx-type {
+            font-size: 0.65em;
+            font-family: 'JetBrains Mono', monospace;
+            color: #8899aa;
+            white-space: nowrap;
+        }
+
+        .index-page-footer {
+            margin-top: 24px;
+            padding-top: 14px;
+            border-top: 1px solid #f0f2f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .index-footer-name {
+            font-size: 0.72em;
+            color: #8899aa;
+            font-weight: 600;
+        }
+        .index-footer-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68em;
+            color: var(--accent);
+        }
+
+        /* ========================================
+           CERTIFICATE PAGES
+        ======================================== */
+
+        /* JPEG / Image cert — full page display */
+        .page-cert-img {
+            display: flex;
+            flex-direction: column;
+            background: #0a0d12;
+        }
+
+        .cert-page-header {
+            background: var(--navy-mid);
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--accent);
+            flex-shrink: 0;
+        }
+        .cert-page-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cert-num-badge {
+            background: var(--accent);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68em;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 4px;
+        }
+        .cert-page-title {
+            font-size: 0.82em;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+        }
+        .cert-page-issuer {
+            font-size: 0.7em;
+            color: #8899aa;
+            margin-top: 1px;
+        }
+        .cert-page-header-right {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65em;
+            color: #445566;
+            text-align: right;
+        }
+
+        .cert-img-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .cert-img-container img {
+            max-width: 100%;
+            max-height: 960px;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+        }
+
+        /* PDF cert — iframe on screen, card when printing */
+        .page-cert-pdf {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Screen: show iframe */
+        .cert-iframe-wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .cert-iframe-wrap iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            min-height: 1040px;
+        }
+
+        /* Print: hide iframe, show card */
+        .cert-print-card {
+            display: none;
+        }
+
+        @media print {
+            body { background: #fff; }
+            .print-bar { display: none; }
+            .pages { margin-top: 0; padding: 0; gap: 0; }
+            .page { width: 100%; box-shadow: none; }
+
+            /* Hide iframes when printing, show cards */
+            .cert-iframe-wrap { display: none !important; }
+            .cert-print-card { display: flex !important; }
+        }
+
+        /* Print card design */
+        .cert-print-card {
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 60px;
+            background: #f7f8fa;
+        }
+
+        .cert-card-inner {
+            width: 100%;
+            max-width: 580px;
+            background: #fff;
+            border: 1px solid #e0e4e8;
+            border-top: 5px solid var(--accent);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .cert-card-logo {
+            width: 60px; height: 60px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8em;
+        }
+        .cert-card-logo.google { background: #e8f0fe; color: #4285F4; }
+        .cert-card-logo.microsoft { background: #e3f2fd; color: #00a4ef; }
+        .cert-card-logo.hrdc { background: #e8f5e9; color: #2d6a4f; }
+        .cert-card-logo.wazza { background: #fff0f0; color: var(--accent); }
+
+        .cert-card-presented {
+            font-size: 0.72em;
+            color: #8899aa;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .cert-card-name {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .cert-card-role {
+            font-size: 0.8em;
+            color: #8899aa;
+            margin-bottom: 24px;
+        }
+
+        .cert-card-divider {
+            width: 40px; height: 2px;
+            background: var(--accent);
+            margin: 0 auto 24px;
+        }
+
+        .cert-card-cert-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .cert-card-issuer-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .cert-card-issuer-badge {
+            font-size: 0.7em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            color: #fff;
+        }
+        .cert-card-issuer-badge.google { background: #4285F4; }
+        .cert-card-issuer-badge.microsoft { background: #00a4ef; }
+        .cert-card-issuer-badge.hrdc { background: #2d6a4f; }
+        .cert-card-issuer-badge.wazza { background: var(--accent); }
+
+        .cert-card-date {
+            font-size: 0.75em;
+            color: #8899aa;
+            margin-bottom: 24px;
+        }
+
+        .cert-card-verify {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68em;
+            color: #c0ccd8;
+            background: #f7f8fa;
+            border: 1px solid #e8eaed;
+            padding: 8px 16px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* Page number strip at bottom */
+        .page-strip {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 32px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            flex-shrink: 0;
+        }
+        .page-strip-name {
+            font-size: 0.6em;
+            color: #2a3444;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .page-strip-page {
+            font-size: 0.6em;
+            color: #2a3444;
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== PRINT BAR ===== -->
+<div class="print-bar">
+    <div class="print-bar-left">
+        <strong>Certificate Portfolio — Amirul Shah Bin Md Rosli</strong>
+        <span>Ctrl + P → Save as PDF → A4 · No margins · Background graphics ON</span>
+    </div>
+    <button class="btn-pdf" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Save as PDF
+    </button>
+</div>
+
+<div class="pages">
+
+    <!-- ============================
+         PAGE 1: COVER
+    ============================= -->
+    <div class="page page-cover">
+        <div class="cover-grid"></div>
+        <div class="cover-inner">
+            <img src="amirul.jpg" alt="Amirul Shah" class="cover-photo">
+            <div class="cover-label">Certificate Portfolio</div>
+            <div class="cover-name">AMIRUL SHAH<span>BIN MD ROSLI</span></div>
+            <div class="cover-title">Senior Web Developer <span>|</span> Data Analytics Specialist</div>
+            <div class="cover-divider"></div>
+            <div class="cover-doc-title">Professional Certificates &amp; Credentials</div>
+            <div class="cover-doc-sub">A complete collection of earned certifications in Web Development, Data Analytics, AI, and Productivity</div>
+            <div class="cover-stats">
+                <div class="cover-stat">
+                    <span class="cover-stat-num">17</span>
+                    <span class="cover-stat-label">Total Certificates</span>
+                </div>
+                <div class="cover-stat">
+                    <span class="cover-stat-num">4</span>
+                    <span class="cover-stat-label">Issuing Bodies</span>
+                </div>
+                <div class="cover-stat">
+                    <span class="cover-stat-num">2025–26</span>
+                    <span class="cover-stat-label">Issued Period</span>
+                </div>
+            </div>
+        </div>
+        <div class="cover-footer">amirulshah4012@gmail.com &nbsp;·&nbsp; 011-5804 2310 &nbsp;·&nbsp; Selangor, Malaysia</div>
+    </div>
+
+    <!-- ============================
+         PAGE 2: INDEX
+    ============================= -->
+    <div class="page page-index">
+        <div class="page-header">
+            <div class="page-header-label">Complete Listing</div>
+            <h2>Certificate Index</h2>
+        </div>
+
+        <table class="index-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Certificate Title</th>
+                    <th>Issued By</th>
+                    <th>Date</th>
+                    <th>Format</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="idx-num">01</td>
+                    <td class="idx-title">Google Certified Educator</td>
+                    <td><span class="idx-issuer google">Google</span></td>
+                    <td class="idx-date">—</td>
+                    <td class="idx-type">JPEG</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">02</td>
+                    <td class="idx-title">Kursus Penguasaan E-Data &amp; Pengurusan Dashboard dengan Google Sheets</td>
+                    <td><span class="idx-issuer wazza">WazzaRed</span></td>
+                    <td class="idx-date">May 27–29, 2025</td>
+                    <td class="idx-type">JPEG</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">03</td>
+                    <td class="idx-title">Explore AI Basics</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 26, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">04</td>
+                    <td class="idx-title">Explore Generative AI</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 26, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">05</td>
+                    <td class="idx-title">Explore Internet Search and Beyond</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 27, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">06</td>
+                    <td class="idx-title">Explore Responsible AI</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 27, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">07</td>
+                    <td class="idx-title">Get Started with Microsoft Copilot</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 27, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">08</td>
+                    <td class="idx-title">Boost Your Productivity with Microsoft Copilot</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 27, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">09</td>
+                    <td class="idx-title">Explore AI for All</td>
+                    <td><span class="idx-issuer microsoft">Microsoft</span></td>
+                    <td class="idx-date">Sep 27, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">10</td>
+                    <td class="idx-title">PowerPoint Expert</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 1, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">11</td>
+                    <td class="idx-title">Excel Tips &amp; Tricks</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">12</td>
+                    <td class="idx-title">Kursus Microsoft Excel</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">13</td>
+                    <td class="idx-title">Powerful Data Analysis and Data Modeling in Excel</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">14</td>
+                    <td class="idx-title">Top Practical Advanced Excel</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">15</td>
+                    <td class="idx-title">The Beginner's Guide to Excel</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">16</td>
+                    <td class="idx-title">Google Sheet untuk Pangkalan Data Pelanggan</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+                <tr>
+                    <td class="idx-num">17</td>
+                    <td class="idx-title">Collaborating Effectively with Google Sheets</td>
+                    <td><span class="idx-issuer hrdc">HRDC</span></td>
+                    <td class="idx-date">Oct 8, 2025</td>
+                    <td class="idx-type">PDF</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="index-page-footer">
+            <span class="index-footer-name">Amirul Shah Bin Md Rosli</span>
+            <span class="index-footer-count">17 certificates · 4 issuing bodies</span>
+        </div>
+    </div>
+
+    <!-- ============================
+         CERT 01 — Google Educator (JPEG)
+    ============================= -->
+    <div class="page page-cert-img" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left">
+                <span class="cert-num-badge">01</span>
+                <div>
+                    <div class="cert-page-title">Google Certified Educator</div>
+                    <div class="cert-page-issuer">Issued by Google</div>
+                </div>
+            </div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-img-container">
+            <img src="cert/google educator.jpeg" alt="Google Certified Educator">
+        </div>
+        <div class="page-strip">
+            <span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span>
+            <span class="page-strip-page">Certificate 01 of 17</span>
+        </div>
+    </div>
+
+    <!-- ============================
+         CERT 02 — WazzaRed (JPEG)
+    ============================= -->
+    <div class="page page-cert-img" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left">
+                <span class="cert-num-badge">02</span>
+                <div>
+                    <div class="cert-page-title">Kursus Penguasaan E-Data &amp; Pengurusan Dashboard dengan Google Sheets</div>
+                    <div class="cert-page-issuer">Issued by WazzaRed (Wazza Digital Sdn Bhd) · May 27–29, 2025</div>
+                </div>
+            </div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-img-container">
+            <img src="cert/WazzaCertificate.jpeg" alt="WazzaRed Certificate">
+        </div>
+        <div class="page-strip">
+            <span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span>
+            <span class="page-strip-page">Certificate 02 of 17</span>
+        </div>
+    </div>
+
+    <!-- ============================
+         CERTS 03–17 — PDF certificates
+         Screen: iframe | Print: card
+    ============================= -->
+
+    <!-- CERT 03 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left">
+                <span class="cert-num-badge">03</span>
+                <div>
+                    <div class="cert-page-title">Explore AI Basics</div>
+                    <div class="cert-page-issuer">Issued by Microsoft · Sep 26, 2025</div>
+                </div>
+            </div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap">
+            <iframe src="cert/Explore AI Basics.pdf" title="Explore AI Basics"></iframe>
+        </div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Explore AI Basics</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 26, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Explore AI Basics.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip">
+            <span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span>
+            <span class="page-strip-page">Certificate 03 of 17</span>
+        </div>
+    </div>
+
+    <!-- CERT 04 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left">
+                <span class="cert-num-badge">04</span>
+                <div>
+                    <div class="cert-page-title">Explore Generative AI</div>
+                    <div class="cert-page-issuer">Issued by Microsoft · Sep 26, 2025</div>
+                </div>
+            </div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap">
+            <iframe src="cert/Explore Generative AI.pdf" title="Explore Generative AI"></iframe>
+        </div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Explore Generative AI</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 26, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Explore Generative AI.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 04 of 17</span></div>
+    </div>
+
+    <!-- CERT 05 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">05</span><div><div class="cert-page-title">Explore Internet Search and Beyond</div><div class="cert-page-issuer">Issued by Microsoft · Sep 27, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Explore Internet Search and Beyond.pdf" title="Explore Internet Search and Beyond"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Explore Internet Search and Beyond</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 27, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Explore Internet Search and Beyond.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 05 of 17</span></div>
+    </div>
+
+    <!-- CERT 06 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">06</span><div><div class="cert-page-title">Explore Responsible AI</div><div class="cert-page-issuer">Issued by Microsoft · Sep 27, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Explore Responsible AI.pdf" title="Explore Responsible AI"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Explore Responsible AI</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 27, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Explore Responsible AI.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 06 of 17</span></div>
+    </div>
+
+    <!-- CERT 07 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">07</span><div><div class="cert-page-title">Get Started with Microsoft Copilot</div><div class="cert-page-issuer">Issued by Microsoft · Sep 27, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Get Started with Microsoft Copilot.pdf" title="Get Started with Microsoft Copilot"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Get Started with Microsoft Copilot</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 27, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Get Started with Microsoft Copilot.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 07 of 17</span></div>
+    </div>
+
+    <!-- CERT 08 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">08</span><div><div class="cert-page-title">Boost Your Productivity with Microsoft Copilot</div><div class="cert-page-issuer">Issued by Microsoft · Sep 27, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Boost Your Productivity with Microsoft Copilot.pdf" title="Boost Your Productivity with Microsoft Copilot"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Boost Your Productivity with Microsoft Copilot</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 27, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Boost Your Productivity with Microsoft Copilot.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 08 of 17</span></div>
+    </div>
+
+    <!-- CERT 09 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">09</span><div><div class="cert-page-title">Explore AI for All</div><div class="cert-page-issuer">Issued by Microsoft · Sep 27, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Explore AI for All.pdf" title="Explore AI for All"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo microsoft"><i class="fab fa-microsoft"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Explore AI for All</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge microsoft">Microsoft</span></div>
+                <div class="cert-card-date">September 27, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Explore AI for All.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 09 of 17</span></div>
+    </div>
+
+    <!-- CERT 10 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">10</span><div><div class="cert-page-title">PowerPoint Expert</div><div class="cert-page-issuer">Issued by Human Resource Development Corporation (HRDC) · Oct 1, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Powerpoint CERT.pdf" title="PowerPoint Expert"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-file-powerpoint"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">PowerPoint Expert</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 1, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Powerpoint CERT.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 10 of 17</span></div>
+    </div>
+
+    <!-- CERT 11 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">11</span><div><div class="cert-page-title">Excel Tips &amp; Tricks</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/EXCEL TIPS & TRICKS 2021.pdf" title="Excel Tips and Tricks"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-file-excel"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Excel Tips &amp; Tricks</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/EXCEL TIPS &amp; TRICKS 2021.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 11 of 17</span></div>
+    </div>
+
+    <!-- CERT 12 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">12</span><div><div class="cert-page-title">Kursus Microsoft Excel</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/KURSUS MICROSOFT EXCEL..pdf" title="Kursus Microsoft Excel"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-file-excel"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Kursus Microsoft Excel</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/KURSUS MICROSOFT EXCEL..pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 12 of 17</span></div>
+    </div>
+
+    <!-- CERT 13 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">13</span><div><div class="cert-page-title">Powerful Data Analysis and Data Modeling in Excel</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Powerful data analysis and data modeling in excel.pdf" title="Powerful Data Analysis in Excel"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-chart-bar"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Powerful Data Analysis and Data Modeling in Excel</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Powerful data analysis and data modeling in excel.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 13 of 17</span></div>
+    </div>
+
+    <!-- CERT 14 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">14</span><div><div class="cert-page-title">Top Practical Advanced Excel</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/TOP PRACTICAL ADVANCED EXCEL.pdf" title="Top Practical Advanced Excel"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-file-excel"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Top Practical Advanced Excel</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/TOP PRACTICAL ADVANCED EXCEL.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 14 of 17</span></div>
+    </div>
+
+    <!-- CERT 15 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">15</span><div><div class="cert-page-title">The Beginner's Guide to Excel</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/The Beginner's Guide To Excel.pdf" title="The Beginner's Guide to Excel"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-file-excel"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">The Beginner's Guide to Excel</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/The Beginner's Guide To Excel.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 15 of 17</span></div>
+    </div>
+
+    <!-- CERT 16 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">16</span><div><div class="cert-page-title">Google Sheet untuk Pangkalan Data Pelanggan</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Google Sheet Untuk Pangkalan Data Pelanggan.pdf" title="Google Sheet untuk Pangkalan Data Pelanggan"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-table"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Google Sheet untuk Pangkalan Data Pelanggan</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Google Sheet Untuk Pangkalan Data Pelanggan.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 16 of 17</span></div>
+    </div>
+
+    <!-- CERT 17 -->
+    <div class="page page-cert-pdf" style="min-height:1123px; display:flex; flex-direction:column;">
+        <div class="cert-page-header">
+            <div class="cert-page-header-left"><span class="cert-num-badge">17</span><div><div class="cert-page-title">Collaborating Effectively with Google Sheets</div><div class="cert-page-issuer">Issued by HRDC · Oct 8, 2025</div></div></div>
+            <div class="cert-page-header-right">Amirul Shah Bin Md Rosli</div>
+        </div>
+        <div class="cert-iframe-wrap"><iframe src="cert/Collaborating Effectively With Google Sheets.pdf" title="Collaborating Effectively with Google Sheets"></iframe></div>
+        <div class="cert-print-card">
+            <div class="cert-card-inner">
+                <div class="cert-card-logo hrdc"><i class="fas fa-users"></i></div>
+                <div class="cert-card-presented">This is to certify that</div>
+                <div class="cert-card-name">Amirul Shah Bin Md Rosli</div>
+                <div class="cert-card-role">Senior Web Developer &amp; Data Analytics Specialist</div>
+                <div class="cert-card-divider"></div>
+                <div class="cert-card-cert-title">Collaborating Effectively with Google Sheets</div>
+                <div class="cert-card-issuer-row"><span class="cert-card-issuer-badge hrdc">HRDC</span></div>
+                <div class="cert-card-date">October 8, 2025</div>
+                <div class="cert-card-verify">Full certificate: cert/Collaborating Effectively With Google Sheets.pdf</div>
+            </div>
+        </div>
+        <div class="page-strip"><span class="page-strip-name">Amirul Shah Bin Md Rosli · Certificate Portfolio</span><span class="page-strip-page">Certificate 17 of 17</span></div>
+    </div>
+
+</div>
+</body>
+</html>
